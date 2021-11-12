@@ -1,10 +1,12 @@
+import AuthContextProvider from './Contexts/AuthContext'
+import MainRoutes from './MainRoutes'
 
 function App() {
   return (
     <div className="App">
-   Adilet
+        <MainRoutes />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
