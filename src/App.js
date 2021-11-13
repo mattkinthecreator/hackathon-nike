@@ -1,9 +1,10 @@
-import AddProduct from "./components/Admin/AddProduct/AddProduct";
+import AddProduct from './components/Admin/AddProduct/AddProduct'
 
 function App() {
   return (
-    <div className="App"> 
+    <div className="App">
       <AddProduct />
-       </div>
-  );
+    </div>
+  )
+}
 export default App
