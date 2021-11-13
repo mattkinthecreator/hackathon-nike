@@ -1,9 +1,10 @@
+import AddProduct from "./components/Admin/AddProduct/AddProduct";
 
 function App() {
   return (
-    <div className="App">
-   Adilet
-    </div>
+    <div className="App"> 
+      <AddProduct />
+       </div>
   );
 }
 
