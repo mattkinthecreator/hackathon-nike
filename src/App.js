@@ -6,6 +6,4 @@ function App() {
       <AddProduct />
        </div>
   );
-}
-
-export default App;
+export default App
