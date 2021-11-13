@@ -65,7 +65,7 @@ const AddProduct = () => {
                     </label>
                 </div>
                 <div className='size'>
-                    <label>39
+                    <label>3
                         <input type='checkbox' placeholder="size"value={39} onClick={(e)=> addSize(e.target.value)}/>
                     </label>
                 </div>
