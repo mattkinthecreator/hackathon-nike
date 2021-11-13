@@ -1,12 +1,9 @@
-import AuthContextProvider from './Contexts/AuthContext'
-import MainRoutes from './MainRoutes'
+import AddProduct from "./components/Admin/AddProduct/AddProduct";
 
 function App() {
   return (
-    <div className="App">
-        <MainRoutes />
-    </div>
-  )
-}
-
+    <div className="App"> 
+      <AddProduct />
+       </div>
+  );
 export default App
