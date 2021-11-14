@@ -1,10 +1,13 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import EditIcon from '../../../assets/img/edit.png'
 import DeleteIcon from '../../../assets/img/x.png'
+import { productsContext } from '../../../Contexts/ProductsContext'
 
 const EditProduct = () => {
   const [shoes, setShoes] = useState([])
+
+  const { handleEditProduct, handleDeleteProduct } = useContext(productsContext)
 
   async function handleSearch(value) {
     let { data } = await axios(`http://localhost:8000/shoes?q=${value}`)

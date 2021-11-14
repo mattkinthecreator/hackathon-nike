@@ -3,13 +3,16 @@ import axios from 'axios'
 export const productsContext = createContext()
 
 const INIT_STATE = {
-    shoes: []
+  shoes: [],
+  editedShoe: {},
 }
 
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case 'GET_PRODUCTS':
       return { ...state, shoes: action.payload }
+    case 'GET_EDITED_SHOE':
+      return { ...state, editedShoe: action.payload }
     default:
       return state
   }
@@ -22,16 +25,25 @@ const ProductsContextProvider = ({ children }) => {
     const { data } = await axios(`http://localhost:8000/shoes?${params}`)
     dispatch({
       type: 'GET_PRODUCTS',
-      payload: data
+      payload: data,
     })
   }
 
+  const handleEditProduct = async (id) => {
+    let { data } = await axios(`http://localhost:8000/shoes/${id}`)
+    dispatch({
+      type: 'GET_EDITED_SHOE',
+      payload: data,
+    })
+  }
 
   return (
     <productsContext.Provider
       value={{
         shoes: state.shoes,
-        getProducts
+        getProducts,
+        editedShoe: state.editedShoe,
+        handleEditProduct,
       }}
     >
       {children}

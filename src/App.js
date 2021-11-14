@@ -1,13 +1,12 @@
-import MainRoutes from "./MainRoutes";
+import MainRoutes from './MainRoutes'
 import './App.css'
-import Header from "./components/Header/Header";
+import Header from './components/Header/Header'
 
 function App() {
   return (
-    <div className="App"> 
-      <Header />  
+    <div className="App">
       <MainRoutes />
-       </div>
-  );
+    </div>
+  )
 }
 export default App
