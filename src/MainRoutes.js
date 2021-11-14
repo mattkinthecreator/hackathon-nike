@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AdminPanel from './components/Admin/AdminPanel/AdminPanel'
 import Auth from './components/Auth/Auth'
 import Cart from './components/Cart/Cart'
 import Header from './components/Header/Header'
@@ -17,6 +18,7 @@ const MainRoutes = () => {
           <Route path="/auth" element={<Auth />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/admin" element={<AdminPanel />} />
         </Routes>
       </BrowserRouter>
     </AuthContextProvider>
