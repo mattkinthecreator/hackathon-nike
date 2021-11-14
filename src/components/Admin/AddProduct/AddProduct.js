@@ -1,28 +1,27 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import axios from 'axios'
+import React, { useState } from 'react'
 import './AddProduct.css'
 
 const AddProduct = () => {
-    const [title, setTitle] = useState('')
-    const [price, setPrice] = useState('')
-    const [size, setSize] = useState([])
-    const [imgColor, setImgColor] = useState('')
-    const [img, setImg] = useState('')
-    const [category, setCategory] = useState('')
+  const [title, setTitle] = useState('')
+  const [price, setPrice] = useState('')
+  const [size, setSize] = useState([])
+  const [imgColor, setImgColor] = useState('')
+  const [img, setImg] = useState('')
+  const [category, setCategory] = useState('')
 
-    function handleAddProduct() {
-        let shoes = {
-            title,
-            price,
-            size,
-            images:[{
-                color: imgColor,
-                images: img,
-            }],
-            category
-        }
-
-        axios.post(`http://localhost:8000/shoes`, shoes)
+  function handleAddProduct() {
+    let shoes = {
+      title,
+      price,
+      size,
+      images: [
+        {
+          color: imgColor,
+          images: img,
+        },
+      ],
+      category,
     }
 
     function addSize(val) {
@@ -43,7 +42,15 @@ const AddProduct = () => {
         
     }
 
-    console.log(size, 3)
+  function addSize(val) {
+    let newSize = [...size]
+    if (newSize.indexOf(val) === -1) {
+      newSize.push(val)
+      setSize(newSize)
+    } else {
+      setSize(newSize.filter((item) => item !== val))
+    }
+  }
 
     return (
         <div className="addProduct">
@@ -102,8 +109,14 @@ const AddProduct = () => {
                 </div>
             </div>
             <button className="add-btn" onClick={handleAddProduct}>ADD</button>
-        </div>
-    );
-};
 
-export default AddProduct;
+        </div>
+      </div>
+      <button className="add-btn" onClick={handleAddProduct}>
+        ADD
+      </button>
+    </div>
+  )
+}
+
+export default AddProduct
