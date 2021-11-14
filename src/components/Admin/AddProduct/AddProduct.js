@@ -29,12 +29,18 @@ const AddProduct = () => {
         let newSize = [...size]
         if(newSize.indexOf(val) === -1) {
             newSize.push(val)
+            newSize.sort((a, b) => a - b)
             setSize(newSize)
         }else {
+            newSize.sort((a, b) => a - b)
             setSize(newSize.filter(item => item !== val))
         }
-        console.log(newSize, 1)
-        console.log(val, 2)
+        setTitle('')
+        setPrice('')
+        setImgColor('')
+        setImg('')
+        setCategory('')
+        
     }
 
     console.log(size, 3)
