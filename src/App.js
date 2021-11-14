@@ -1,9 +1,11 @@
-import AddProduct from "./components/Admin/AddProduct/AddProduct";
+import react from 'react'
+import MainRoutes from './MainRoutes'
 
 function App() {
   return (
-    <div className="App"> 
-      <AddProduct />
-       </div>
-  );
+    <div className="App">
+      <MainRoutes />
+    </div>
+  )
+}
 export default App
