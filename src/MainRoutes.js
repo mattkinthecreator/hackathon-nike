@@ -13,18 +13,21 @@ import AddProduct from './components/Admin/AddProduct/AddProduct'
 
 const MainRoutes = () => {
   return (
-    <AuthContextProvider>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/admin" element={<AdminPanel />} />
-        </Routes>
-      </BrowserRouter>
-    </AuthContextProvider>
+    <ProductsContextProvider>
+      <AuthContextProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/cart" element={<Cart />} />
+            {/* <Route path="/product/:id" element={<ProductDetails />} /> */}
+            <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/shoes" element={<ProductList />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthContextProvider>
+    </ProductsContextProvider>
   )
 }
 

@@ -13,30 +13,34 @@ const ProductList = () => {
       }, [])
 
     return (
-        <>
-        <Sidebar />
-        <div className='shoes'>
-            <div className="container">
-                <div className='cards-options'>
-                        <div>
-                            <h2>Мужская обувь</h2>
+        <div className='productList'>
+            <div>
+                <Sidebar />
+            </div>
+            <div>
+                <div className='shoes'>
+                    <div className="container">
+                        <div className='cards-options'>
+                                <div>
+                                    <h2>Мужская обувь</h2>
+                                </div>
+                                <div className='cards-options-set'>
+                                    <p>Показать фильтры</p>
+                                    <p>Сортировать по</p>
+                                </div>
                         </div>
-                        <div className='cards-options-set'>
-                            <p>Показать фильтры</p>
-                            <p>Сортировать по</p>
-                        </div>
+                    </div>
+                </div>
+                <div className="cards">
+                        {shoes.map((item) => 
+                            <ProductCard 
+                                key={item.id} 
+                                item={item}/>
+                            )
+                        }
                 </div>
             </div>
         </div>
-        <div className="cards">
-                {shoes.map((item) => 
-                    <ProductCard 
-                        key={item.id} 
-                        item={item}/>
-                    )
-                }
-            </div>
-        </>
         
     );
 };
