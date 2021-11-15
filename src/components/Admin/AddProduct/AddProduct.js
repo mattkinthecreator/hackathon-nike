@@ -7,7 +7,7 @@ const AddProduct = () => {
   const [price, setPrice] = useState('')
   const [size, setSize] = useState([])
   const [imgColor, setImgColor] = useState('')
-  const [img, setImg] = useState('')
+  const [img, setImg] = useState([])
   const [category, setCategory] = useState('')
 
   function handleAddProduct() {
@@ -23,18 +23,8 @@ const AddProduct = () => {
       ],
       category,
     }
-  }
-
-  function addSize(val) {
-    let newSize = [...size]
-    if (newSize.indexOf(val) === -1) {
-      newSize.push(val)
-      newSize.sort((a, b) => a - b)
-      setSize(newSize)
-    } else {
-      newSize.sort((a, b) => a - b)
-      setSize(newSize.filter((item) => item !== val))
-    }
+    console.log(shoes)
+    axios.post(' http://localhost:8000/shoes', shoes)
     setTitle('')
     setPrice('')
     setImgColor('')
@@ -46,11 +36,28 @@ const AddProduct = () => {
     let newSize = [...size]
     if (newSize.indexOf(val) === -1) {
       newSize.push(val)
+      newSize.sort((a, b) => a - b)
       setSize(newSize)
     } else {
+      newSize.sort((a, b) => a - b)
       setSize(newSize.filter((item) => item !== val))
     }
   }
+
+  function handleImg(e) {
+    const files = e.target.files
+    let newArr = []
+    for (let file of files) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        newArr.push(reader.result)
+      }
+      reader.readAsDataURL(file)
+    }
+    setImg(newArr)
+  }
+
+  console.log(img, 'files in state')
 
   return (
     <div className="addProduct">
@@ -71,9 +78,11 @@ const AddProduct = () => {
         onChange={(e) => setImgColor(e.target.value)}
       />
       <input
-        type="text"
+        type="file"
         placeholder="IMAGE"
-        onChange={(e) => setImg(e.target.value)}
+        accept=".jpg, .jpeg, .png"
+        multiple
+        onChange={(e) => handleImg(e)}
       />
       <input
         type="text"
