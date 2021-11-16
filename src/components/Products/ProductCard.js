@@ -2,9 +2,6 @@ import React, {useContext} from 'react';
 import './Product.css'
 import { productsContext } from '../../Contexts/ProductsContext'
 
-
-
-
 const ProductCard = ( {item} ) => {
     const { addProductToCart } = useContext(productsContext)
     return (
