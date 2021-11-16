@@ -27,7 +27,6 @@ const Cart = () => {
               {cart.shoes.map((elem) => (
                 <tr key={elem.item.id}>
                   <td>
-                    {/* <img src={elem.item.image[0]} alt="product img" /> */}
                   </td>
                   <td>{elem.item.title}</td>
                   <td>{elem.item.price}</td>
@@ -40,7 +39,7 @@ const Cart = () => {
                       }
                     />
                   </td>
-                  <td>{elem.subPrice}</td>
+                  <td></td>
                 </tr>
               ))}
             </tbody>
