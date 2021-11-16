@@ -17,7 +17,6 @@ const ProductCard = ( {item} ) => {
                     <p>size: {item.size.map(item => item + ' ')} </p>
                     <p>Price: {item.price}$</p>
                     <button onClick={() => addProductToCart(item)}>Korzina</button>
-                    a
                 </div>
             </div>
     )

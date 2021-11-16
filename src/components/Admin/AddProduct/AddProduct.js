@@ -25,23 +25,6 @@ const AddProduct = () => {
     }
   }
 
-    function addSize(val) {
-        let newSize = [...size]
-        if(newSize.indexOf(val) === -1) {
-            newSize.push(val)
-            newSize.sort((a, b) => a - b)
-            setSize(newSize)
-        }else {
-            newSize.sort((a, b) => a - b)
-            setSize(newSize.filter(item => item !== val))
-        }
-        setTitle('')
-        setPrice('')
-        setImgColor('')
-        setImg('')
-        setCategory('')
-        
-    }
 
   function addSize(val) {
     let newSize = [...size]
