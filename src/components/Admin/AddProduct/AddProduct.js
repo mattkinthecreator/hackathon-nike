@@ -30,7 +30,6 @@ const AddProduct = () => {
     setImg('')
     setCategory('')
   }
-  }
 
     function addSize(val) {
         let newSize = [...size]
@@ -49,17 +48,6 @@ const AddProduct = () => {
         setCategory('')
         
     }
-  function addSize(val) {
-    let newSize = [...size]
-    if (newSize.indexOf(val) === -1) {
-      newSize.push(val)
-      newSize.sort((a, b) => a - b)
-      setSize(newSize)
-    } else {
-      newSize.sort((a, b) => a - b)
-      setSize(newSize.filter((item) => item !== val))
-    }
-  }
 
   function handleImg(e) {
     const files = e.target.files
@@ -74,7 +62,6 @@ const AddProduct = () => {
     setImg(newArr)
   }
 
-  console.log(img, 'files in state')
 
   return (
     <div className="addProduct">
@@ -206,7 +193,9 @@ const AddProduct = () => {
             />
           </label>
         </div>
-  )
-}
+    </div>
+    <button onClick={handleAddProduct}>Add</button>
+</div>
+)}
 
 export default AddProduct
