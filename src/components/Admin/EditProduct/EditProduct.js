@@ -23,14 +23,14 @@ const EditProduct = () => {
           return (
             <div key={item.id}>
               <div className="button-wrapper">
-                <button onClick={() => handleEditProduct(item.id)}>
+                <button>
                   <img
                     src={EditIcon}
                     alt="edit icon"
                     style={{ width: '20px' }}
                   />
                 </button>
-                <button onClick={() => handleDeleteProduct(item.id)}>
+                <button>
                   <img
                     src={DeleteIcon}
                     alt="delete icon"

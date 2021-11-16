@@ -23,6 +23,7 @@ const AddProduct = () => {
       ],
       category,
     }
+  }
 
     function addSize(val) {
         let newSize = [...size]
@@ -108,14 +109,8 @@ const AddProduct = () => {
                     </label>
                 </div>
             </div>
-            <button className="add-btn" onClick={handleAddProduct}>ADD</button>
-
+            <button className="add-btn" onClick={handleAddProduct}>ADD</button>   
         </div>
-      </div>
-      <button className="add-btn" onClick={handleAddProduct}>
-        ADD
-      </button>
-    </div>
   )
 }
 

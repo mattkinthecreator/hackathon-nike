@@ -37,3 +37,8 @@
     justify-content: center;
     
 }
+
+.productList {
+    display: flex;
+    justify-content: space-between;
+}
