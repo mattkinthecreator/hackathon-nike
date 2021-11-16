@@ -23,7 +23,6 @@ const AddProduct = () => {
       ],
       category,
     }
-    console.log(shoes)
     axios.post(' http://localhost:8000/shoes', shoes)
     setTitle('')
     setPrice('')
@@ -31,7 +30,25 @@ const AddProduct = () => {
     setImg('')
     setCategory('')
   }
+  }
 
+    function addSize(val) {
+        let newSize = [...size]
+        if(newSize.indexOf(val) === -1) {
+            newSize.push(val)
+            newSize.sort((a, b) => a - b)
+            setSize(newSize)
+        }else {
+            newSize.sort((a, b) => a - b)
+            setSize(newSize.filter(item => item !== val))
+        }
+        setTitle('')
+        setPrice('')
+        setImgColor('')
+        setImg('')
+        setCategory('')
+        
+    }
   function addSize(val) {
     let newSize = [...size]
     if (newSize.indexOf(val) === -1) {
@@ -189,11 +206,6 @@ const AddProduct = () => {
             />
           </label>
         </div>
-      </div>
-      <button className="add-btn" onClick={handleAddProduct}>
-        ADD
-      </button>
-    </div>
   )
 }
 

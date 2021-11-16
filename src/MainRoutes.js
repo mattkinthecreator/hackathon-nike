@@ -23,6 +23,7 @@ const MainRoutes = () => {
             <Route path="/cart" element={<Cart />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/shoes" element={<ProductList />} />
           </Routes>
         </BrowserRouter>
       </AuthContextProvider>

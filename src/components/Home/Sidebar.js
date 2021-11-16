@@ -1,21 +1,12 @@
 import React from 'react';
-import RangeSlider from './Slider'
-import {
-    FormControl,
-    Grid,
-    Paper
-  } from "@mui/material";
-
+import Slider from './Slider';
+import './Sidebar.css'
 
 const Sidebar = () => {
   return (
-   <Grid item md={3}>
-     <Paper>
-     <FormControl component="fieldset">
-        <RangeSlider />
-    </FormControl>
-     </Paper>
-   </Grid>
+   <div className='sidebar'>
+       <Slider />
+   </div>
   );
 };
 
