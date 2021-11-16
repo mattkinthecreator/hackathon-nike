@@ -56,8 +56,6 @@ const AddProduct = () => {
     setImg(newArr)
   }
 
-  console.log(img, 'files in state')
-
   return (
     <div className="addProduct">
       <h2>Add product</h2>
@@ -189,9 +187,7 @@ const AddProduct = () => {
           </label>
         </div>
       </div>
-      <button className="add-btn" onClick={handleAddProduct}>
-        ADD
-      </button>
+      <button onClick={handleAddProduct}>Add</button>
     </div>
   )
 }

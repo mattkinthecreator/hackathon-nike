@@ -1,14 +1,18 @@
 import React, { createContext, useReducer, useState } from 'react'
 import axios from 'axios'
-import {calcSubPrice, calcTotalPrice, getCountProductsInCart} from '../helpers/cartFunction'
+import {
+  calcSubPrice,
+  calcTotalPrice,
+  getCountProductsInCart,
+} from '../helpers/cartFunction'
 export const productsContext = createContext()
 
 const INIT_STATE = {
-    shoes: [],
-    editedShoe: {},
-    cart: {},
-    currentProduct: {},
-    cartLength: getCountProductsInCart(),
+  shoes: [],
+  editedShoe: {},
+  cart: {},
+  currentProduct: {},
+  cartLength: getCountProductsInCart(),
 }
 
 const reducer = (state = INIT_STATE, action) => {
@@ -17,10 +21,10 @@ const reducer = (state = INIT_STATE, action) => {
       return { ...state, shoes: action.payload }
     case 'GET_EDITED_SHOE':
       return { ...state, editedShoe: action.payload }
-      case 'CHANGE_CART_COUNT':
-        return { ...state, cartLength: action.payload }
-      case 'GET_CART':
-        return { ...state, cart: action.payload }
+    case 'CHANGE_CART_COUNT':
+      return { ...state, cartLength: action.payload }
+    case 'GET_CART':
+      return { ...state, cart: action.payload }
     default:
       return state
   }
@@ -50,35 +54,35 @@ const ProductsContextProvider = ({ children }) => {
   function toggleModal() {
     setIsEdit((state) => !state)
   }
-  const addProductToCart = (shoes) => {
+  const addProductToCart = (products) => {
     let cart = JSON.parse(localStorage.getItem('cart'))
     if (!cart) {
       cart = {
-        shoes: [],
+        products: [],
         totalPrice: 0,
       }
     }
     let newProduct = {
-      item: shoes,
+      item: products,
       count: 1,
       subPrice: 0,
     }
-    let filteredCart = cart.shoes.filter(
-      (elem) => elem.item.id === shoes.id
+    let filteredCart = cart.products.filter(
+      (elem) => elem.item.id === products.id
     )
     if (filteredCart.length > 0) {
-      cart.shoes = cart.shoes.filter(
-        (elem) => elem.item.id !== shoes.id
+      cart.products = cart.products.filter(
+        (elem) => elem.item.id !== products.id
       )
     } else {
-      cart.shoes.push(newProduct)
+      cart.products.push(newProduct)
     }
     newProduct.subPrice = calcSubPrice(newProduct)
-    cart.totalPrice = calcTotalPrice(cart.shoes)
+    cart.totalPrice = calcTotalPrice(cart.products)
     localStorage.setItem('cart', JSON.stringify(cart))
     dispatch({
       type: 'CHANGE_CART_COUNT',
-      payload: cart.shoes.length,
+      payload: cart.products.length,
     })
   }
 

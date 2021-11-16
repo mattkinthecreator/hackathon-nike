@@ -1,6 +1,6 @@
 export function getCountProductsInCart() {
   const cart = JSON.parse(localStorage.getItem('cart'))
-  return cart ? cart.shoes.length : 0
+  return cart ? cart.products.length : 0
 }
 
 export function calcSubPrice(shoes) {
