@@ -1,10 +1,11 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useReducer, useState } from 'react'
 import axios from 'axios'
 import {calcSubPrice, calcTotalPrice, getCountProductsInCart} from '../helpers/cartFunction'
 export const productsContext = createContext()
 
 const INIT_STATE = {
     shoes: [],
+    editedShoe: {},
     cart: {},
     currentProduct: {},
     cartLength: getCountProductsInCart(),
@@ -14,6 +15,8 @@ const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case 'GET_PRODUCTS':
       return { ...state, shoes: action.payload }
+    case 'GET_EDITED_SHOE':
+      return { ...state, editedShoe: action.payload }
       case 'CHANGE_CART_COUNT':
         return { ...state, cartLength: action.payload }
       case 'GET_CART':
@@ -25,15 +28,28 @@ const reducer = (state = INIT_STATE, action) => {
 
 const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE)
+  const [isEdit, setIsEdit] = useState(false)
 
   const getProducts = async (params) => {
     const { data } = await axios(`http://localhost:8000/shoes?${params}`)
     dispatch({
       type: 'GET_PRODUCTS',
-      payload: data
+      payload: data,
     })
   }
 
+  const handleEditProduct = async (id) => {
+    let { data } = await axios(`http://localhost:8000/shoes/${id}`)
+    dispatch({
+      type: 'GET_EDITED_SHOE',
+      payload: data,
+    })
+    toggleModal()
+  }
+
+  function toggleModal() {
+    setIsEdit((state) => !state)
+  }
   const addProductToCart = (shoes) => {
     let cart = JSON.parse(localStorage.getItem('cart'))
     if (!cart) {
@@ -98,9 +114,13 @@ const ProductsContextProvider = ({ children }) => {
     <productsContext.Provider
       value={{
         shoes: state.shoes,
-        getProducts,
+        editedShoe: state.editedShoe,
         cartLength: state.cartLength,
         cart: state.cart,
+        getProducts,
+        handleEditProduct,
+        toggleModal,
+        isEdit,
         addProductToCart,
         changeProductCount,
         getCart,
