@@ -51,6 +51,11 @@ const ProductsContextProvider = ({ children }) => {
     toggleModal()
   }
 
+  const handleDeleteProduct = async (id, searchVal) => {
+    await axios.delete(`http://localhost:8000/shoes/${id}`)
+    getProducts(`q=${searchVal}`)
+  }
+
   function toggleModal() {
     setIsEdit((state) => !state)
   }
@@ -126,6 +131,7 @@ const ProductsContextProvider = ({ children }) => {
         cart: state.cart,
         getProducts,
         handleEditProduct,
+        handleDeleteProduct,
         toggleModal,
         isEdit,
         addProductToCart,

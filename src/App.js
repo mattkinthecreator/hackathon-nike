@@ -1,11 +1,16 @@
 import MainRoutes from './MainRoutes'
 import './App.css'
-import Header from './components/Header/Header'
+import AuthContextProvider from './Contexts/AuthContext'
+import ProductsContextProvider from './Contexts/ProductsContext'
 
 function App() {
   return (
-    <div className="App"> 
-      <MainRoutes />
+    <div className="App">
+      <ProductsContextProvider>
+        <AuthContextProvider>
+          <MainRoutes />
+        </AuthContextProvider>
+      </ProductsContextProvider>
     </div>
   )
 }

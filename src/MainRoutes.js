@@ -1,33 +1,29 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import AdminPanel from './components/Admin/AdminPanel/AdminPanel'
 import Auth from './components/Auth/Auth'
 import Cart from './components/Cart/Cart'
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import ProductDetails from './components/Products/ProductDetails'
-import AuthContextProvider from './Contexts/AuthContext'
 import ProductList from './components/Products/ProductList'
-import ProductsContextProvider from './Contexts/ProductsContext'
-import AddProduct from './components/Admin/AddProduct/AddProduct'
+import { useAuth } from './Contexts/AuthContext'
 
 const MainRoutes = () => {
+  const { user } = useAuth()
+
   return (
-    <ProductsContextProvider>
-      <AuthContextProvider>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/admin" element={<AdminPanel />} />
-            <Route path="/shoes" element={<ProductList />} />
-          </Routes>
-        </BrowserRouter>
-      </AuthContextProvider>
-    </ProductsContextProvider>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/auth" element={user ? <Navigate to="/" /> : <Auth />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/shoes" element={<ProductList />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
