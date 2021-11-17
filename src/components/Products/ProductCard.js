@@ -3,7 +3,7 @@ import './Product.css'
 import { productsContext } from '../../Contexts/ProductsContext'
 
 const ProductCard = ({ item }) => {
-  const { addProductToCart } = useContext(productsContext)
+  const { addProductToCart, addProductToFavorites } = useContext(productsContext)
   return (
     <div class="card">
       <img src={item.images[0].images} width="450px" height="400px" />
@@ -14,6 +14,7 @@ const ProductCard = ({ item }) => {
         <p>size: {item.size.map((item) => item + ' ')} </p>
         <p>Price: {item.price}$</p>
         <button onClick={() => addProductToCart(item)}>Korzina</button>
+        <button onClick={() => addProductToFavorites(item)} ></button>
       </div>
     </div>
   )

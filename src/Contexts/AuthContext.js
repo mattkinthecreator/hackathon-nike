@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import fire from '../fire'
 
@@ -64,6 +65,7 @@ const AuthContextProvider = ({ children }) => {
             return
         }
       })
+      userSet()
   }
 
   const handleLogOut = () => {
@@ -98,6 +100,14 @@ const AuthContextProvider = ({ children }) => {
     setHasAccount,
     emailError,
     passwordError,
+  }
+
+  async function userSet() {
+    let user = {
+      email: email,
+      favorites: []
+    }
+    await axios.post(`http://localhost:8000/users`, user)
   }
 
   return <authContext.Provider value={values}>{children}</authContext.Provider>

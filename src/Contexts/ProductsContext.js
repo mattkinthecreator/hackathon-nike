@@ -54,35 +54,35 @@ const ProductsContextProvider = ({ children }) => {
   function toggleModal() {
     setIsEdit((state) => !state)
   }
-  const addProductToCart = (products) => {
+  const addProductToCart = (shoes) => {
     let cart = JSON.parse(localStorage.getItem('cart'))
     if (!cart) {
       cart = {
-        products: [],
+        shoes: [],
         totalPrice: 0,
       }
     }
     let newProduct = {
-      item: products,
+      item: shoes,
       count: 1,
       subPrice: 0,
     }
-    let filteredCart = cart.products.filter(
-      (elem) => elem.item.id === products.id
+    let filteredCart = cart.shoes.filter(
+      (elem) => elem.item.id === shoes.id
     )
     if (filteredCart.length > 0) {
-      cart.products = cart.products.filter(
-        (elem) => elem.item.id !== products.id
+      cart.products = cart.shoes.filter(
+        (elem) => elem.item.id !== shoes.id
       )
     } else {
-      cart.products.push(newProduct)
+      cart.shoes.push(newProduct)
     }
     newProduct.subPrice = calcSubPrice(newProduct)
-    cart.totalPrice = calcTotalPrice(cart.products)
+    cart.totalPrice = calcTotalPrice(cart.shoes)
     localStorage.setItem('cart', JSON.stringify(cart))
     dispatch({
       type: 'CHANGE_CART_COUNT',
-      payload: cart.products.length,
+      payload: cart.shoes.length,
     })
   }
 
@@ -112,6 +112,10 @@ const ProductsContextProvider = ({ children }) => {
     cart.totalPrice = calcTotalPrice(cart.shoes)
     localStorage.setItem('cart', JSON.stringify(cart))
     getCart()
+  }
+
+  function addProductToFavorites(data) {
+    
   }
 
   return (
