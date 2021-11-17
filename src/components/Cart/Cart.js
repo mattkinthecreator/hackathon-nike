@@ -11,7 +11,7 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      {cart.products ? (
+      {cart.shoes ? (
         <div>
           <table>
             <thead>
@@ -24,7 +24,7 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {cart.products.map((elem) => (
+              {cart.shoes.map((elem) => (
                 <tr key={elem.item.id}>
                   <td></td>
                   <td>{elem.item.title}</td>

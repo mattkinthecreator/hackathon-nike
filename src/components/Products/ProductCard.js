@@ -1,9 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './Product.css'
 import { productsContext } from '../../Contexts/ProductsContext'
+import { authContext } from '../../Contexts/AuthContext'
 
 const ProductCard = ({ item }) => {
-  const { addProductToCart, addProductToFavorites } = useContext(productsContext)
+  const { addProductToCart } = useContext(productsContext)
+  const { addProductToFavorites } = useContext(authContext)
+
   return (
     <div class="card">
       <img src={item.images[0].images} width="450px" height="400px" />
@@ -14,7 +17,7 @@ const ProductCard = ({ item }) => {
         <p>size: {item.size.map((item) => item + ' ')} </p>
         <p>Price: {item.price}$</p>
         <button onClick={() => addProductToCart(item)}>Korzina</button>
-        <button onClick={() => addProductToFavorites(item)} ></button>
+        <button onClick={() => addProductToFavorites(item)} >Fav</button>
       </div>
     </div>
   )

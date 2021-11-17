@@ -67,13 +67,10 @@ const ProductsContextProvider = ({ children }) => {
       count: 1,
       subPrice: 0,
     }
-    let filteredCart = cart.shoes.filter(
-      (elem) => elem.item.id === shoes.id
-    )
+    console.log(cart)
+    let filteredCart = cart.shoes.filter((elem) => elem.item.id === shoes.id)
     if (filteredCart.length > 0) {
-      cart.products = cart.shoes.filter(
-        (elem) => elem.item.id !== shoes.id
-      )
+      cart.shoes = cart.shoes.filter((elem) => elem.item.id !== shoes.id)
     } else {
       cart.shoes.push(newProduct)
     }
@@ -114,8 +111,10 @@ const ProductsContextProvider = ({ children }) => {
     getCart()
   }
 
-  function addProductToFavorites(data) {
-    
+  async function saveEditShoe(id, shoe, searchVal) {
+    await axios.patch(`http://localhost:8000/shoes/${id}`, shoe)
+    toggleModal()
+    getProducts(`q=${searchVal}`)
   }
 
   return (
@@ -132,6 +131,7 @@ const ProductsContextProvider = ({ children }) => {
         addProductToCart,
         changeProductCount,
         getCart,
+        saveEditShoe,
       }}
     >
       {children}

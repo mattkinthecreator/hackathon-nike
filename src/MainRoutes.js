@@ -10,6 +10,7 @@ import AuthContextProvider from './Contexts/AuthContext'
 import ProductList from './components/Products/ProductList'
 import ProductsContextProvider from './Contexts/ProductsContext'
 import AddProduct from './components/Admin/AddProduct/AddProduct'
+import Favorites from './components/Favorites/Favorites'
 
 const MainRoutes = () => {
   return (
@@ -24,6 +25,7 @@ const MainRoutes = () => {
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/shoes" element={<ProductList />} />
+            <Route path="/favorites" element={<Favorites/>} />
           </Routes>
         </BrowserRouter>
       </AuthContextProvider>

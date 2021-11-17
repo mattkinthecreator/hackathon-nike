@@ -1,22 +1,23 @@
-import axios from 'axios'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import EditIcon from '../../../assets/img/edit.png'
 import DeleteIcon from '../../../assets/img/x.png'
 import { productsContext } from '../../../Contexts/ProductsContext'
 import EditModal from '../EditModal/EditModal'
 
 const EditProduct = () => {
-  const [shoes, setShoes] = useState([])
-
-  const { handleEditProduct, handleDeleteProduct, isEdit } =
+  const { handleEditProduct, handleDeleteProduct, isEdit, getProducts, shoes } =
     useContext(productsContext)
 
+  const [searchVal, setSearchVal] = useState('')
+
   async function handleSearch(value) {
-    let { data } = await axios(`http://localhost:8000/shoes?q=${value}`)
-    setShoes(data)
+    setSearchVal(value)
+    getProducts(`q=${value}`)
   }
 
-  console.log(isEdit)
+  useEffect(() => {
+    getProducts()
+  }, [])
 
   return (
     <div>
@@ -30,7 +31,7 @@ const EditProduct = () => {
           return (
             <div key={item.id}>
               <div className="button-wrapper">
-                <button>
+                <button onClick={() => handleEditProduct(item.id)}>
                   <img
                     src={EditIcon}
                     alt="edit icon"
@@ -55,14 +56,14 @@ const EditProduct = () => {
               <p>{item.price} $</p>
               <p>
                 {item.size.map((size) => (
-                  <span>{size} </span>
+                  <span key={size}>{size} </span>
                 ))}
               </p>
             </div>
           )
         })}
       </div>
-      {isEdit && <EditModal />}
+      {isEdit && <EditModal searchVal={searchVal} />}
     </div>
   )
 }
