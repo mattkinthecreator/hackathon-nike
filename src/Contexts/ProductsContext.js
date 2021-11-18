@@ -132,6 +132,11 @@ const ProductsContextProvider = ({ children }) => {
     })
   }
 
+  async function addNewColorImage(id, shoe) {
+    await axios.patch(`http://localhost:8000/shoes/${id}`, shoe)
+    getCurrentProduct(id)
+  }
+
   return (
     <productsContext.Provider
       value={{
@@ -150,6 +155,7 @@ const ProductsContextProvider = ({ children }) => {
         getCart,
         saveEditShoe,
         getCurrentProduct,
+        addNewColorImage,
       }}
     >
       {children}
