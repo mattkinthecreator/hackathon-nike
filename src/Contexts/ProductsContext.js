@@ -25,6 +25,8 @@ const reducer = (state = INIT_STATE, action) => {
       return { ...state, cartLength: action.payload }
     case 'GET_CART':
       return { ...state, cart: action.payload }
+    case 'GET_CURRENT_PRODUCT':
+      return { ...state, currentProduct: action.payload }
     default:
       return state
   }
@@ -49,6 +51,11 @@ const ProductsContextProvider = ({ children }) => {
       payload: data,
     })
     toggleModal()
+  }
+
+  const handleDeleteProduct = async (id, searchVal) => {
+    await axios.delete(`http://localhost:8000/shoes/${id}`)
+    getProducts(`q=${searchVal}`)
   }
 
   function toggleModal() {
@@ -117,6 +124,19 @@ const ProductsContextProvider = ({ children }) => {
     getProducts(`q=${searchVal}`)
   }
 
+  async function getCurrentProduct(id) {
+    let { data } = await axios(`http://localhost:8000/shoes/${id}`)
+    dispatch({
+      type: 'GET_CURRENT_PRODUCT',
+      payload: data,
+    })
+  }
+
+  async function addNewColorImage(id, shoe) {
+    await axios.patch(`http://localhost:8000/shoes/${id}`, shoe)
+    getCurrentProduct(id)
+  }
+
   return (
     <productsContext.Provider
       value={{
@@ -124,14 +144,18 @@ const ProductsContextProvider = ({ children }) => {
         editedShoe: state.editedShoe,
         cartLength: state.cartLength,
         cart: state.cart,
+        currentProduct: state.currentProduct,
         getProducts,
         handleEditProduct,
+        handleDeleteProduct,
         toggleModal,
         isEdit,
         addProductToCart,
         changeProductCount,
         getCart,
         saveEditShoe,
+        getCurrentProduct,
+        addNewColorImage,
       }}
     >
       {children}

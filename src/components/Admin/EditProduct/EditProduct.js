@@ -38,7 +38,7 @@ const EditProduct = () => {
                     style={{ width: '20px' }}
                   />
                 </button>
-                <button>
+                <button onClick={() => handleDeleteProduct(item.id, searchVal)}>
                   <img
                     src={DeleteIcon}
                     alt="delete icon"

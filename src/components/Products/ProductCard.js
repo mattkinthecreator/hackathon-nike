@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import './Product.css'
 import { productsContext } from '../../Contexts/ProductsContext'
-import { authContext } from '../../Contexts/AuthContext'
+import { Link } from 'react-router-dom'
 
 const ProductCard = ({ item }) => {
   const { addProductToCart } = useContext(productsContext)
@@ -16,8 +16,11 @@ const ProductCard = ({ item }) => {
         <p>color: {item.images.map((elem) => elem.color)}</p>
         <p>size: {item.size.map((item) => item + ' ')} </p>
         <p>Price: {item.price}$</p>
+        <Link to={`shoes/${item.id}`}>
+          <button>Подробнее</button>
+        </Link>
         <button onClick={() => addProductToCart(item)}>Korzina</button>
-        <button onClick={() => addProductToFavorites(item)} >Fav</button>
+        <button onClick={() => addProductToFavorites(item)}>Fav</button>
       </div>
     </div>
   )
