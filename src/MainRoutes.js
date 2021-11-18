@@ -8,6 +8,9 @@ import Home from './components/Home/Home'
 import ProductDetails from './components/Products/ProductDetails'
 import ProductList from './components/Products/ProductList'
 import { useAuth } from './Contexts/AuthContext'
+import ProductsContextProvider from './Contexts/ProductsContext'
+import AddProduct from './components/Admin/AddProduct/AddProduct'
+import Favorites from './components/Favorites/Favorites'
 
 const MainRoutes = () => {
   const { user } = useAuth()
@@ -22,6 +25,7 @@ const MainRoutes = () => {
         <Route path="/shoes/:id" element={<ProductDetails />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/shoes" element={<ProductList />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </BrowserRouter>
   )
