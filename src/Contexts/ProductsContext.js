@@ -25,6 +25,8 @@ const reducer = (state = INIT_STATE, action) => {
       return { ...state, cartLength: action.payload }
     case 'GET_CART':
       return { ...state, cart: action.payload }
+    case 'GET_CURRENT_PRODUCT':
+      return { ...state, currentProduct: action.payload }
     default:
       return state
   }
@@ -122,6 +124,14 @@ const ProductsContextProvider = ({ children }) => {
     getProducts(`q=${searchVal}`)
   }
 
+  async function getCurrentProduct(id) {
+    let { data } = await axios(`http://localhost:8000/shoes/${id}`)
+    dispatch({
+      type: 'GET_CURRENT_PRODUCT',
+      payload: data,
+    })
+  }
+
   return (
     <productsContext.Provider
       value={{
@@ -129,6 +139,7 @@ const ProductsContextProvider = ({ children }) => {
         editedShoe: state.editedShoe,
         cartLength: state.cartLength,
         cart: state.cart,
+        currentProduct: state.currentProduct,
         getProducts,
         handleEditProduct,
         handleDeleteProduct,
@@ -138,6 +149,7 @@ const ProductsContextProvider = ({ children }) => {
         changeProductCount,
         getCart,
         saveEditShoe,
+        getCurrentProduct,
       }}
     >
       {children}
