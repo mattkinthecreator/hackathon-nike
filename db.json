@@ -38,13 +38,7 @@
         {
           "title": "Jordan 1",
           "price": "150",
-          "size": [
-            "36",
-            "41",
-            "37",
-            "38",
-            "42"
-          ],
+          "size": ["36", "41", "37", "38", "42"],
           "images": [
             {
               "color": "Blue",
@@ -57,10 +51,7 @@
         {
           "title": "Nike Air Force 1",
           "price": "150",
-          "size": [
-            "38",
-            "39"
-          ],
+          "size": ["38", "39"],
           "images": [
             {
               "color": "white",
@@ -73,13 +64,7 @@
         {
           "title": "Adilet",
           "price": "10000000",
-          "size": [
-            "36",
-            "38",
-            "41",
-            "43",
-            "44"
-          ],
+          "size": ["36", "38", "41", "43", "44"],
           "images": [
             {
               "color": "Yah",
@@ -91,6 +76,11 @@
         }
       ],
       "id": 2
+    },
+    {
+      "email": "bekievbeil@gmail.com",
+      "favorites": [],
+      "id": 3
     }
   ]
 }

@@ -3,6 +3,7 @@ import ProductCard from './ProductCard'
 import { productsContext } from '../../Contexts/ProductsContext'
 import './Product.css'
 import Sidebar from '../Home/Sidebar'
+import { useParams } from 'react-router'
 
 const ProductList = () => {
   const { getProducts, shoes } = useContext(productsContext)
@@ -11,7 +12,7 @@ const ProductList = () => {
     getProducts()
   }, [])
 
-  console.log(shoes)
+  console.log(useParams())
 
   return (
     <>

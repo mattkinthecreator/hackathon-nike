@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import './Product.css'
 import { productsContext } from '../../Contexts/ProductsContext'
 import { Link } from 'react-router-dom'
+import { authContext } from '../../Contexts/AuthContext'
 
 const ProductCard = ({ item }) => {
   const { addProductToCart } = useContext(productsContext)

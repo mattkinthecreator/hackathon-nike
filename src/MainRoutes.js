@@ -11,6 +11,7 @@ import { useAuth } from './Contexts/AuthContext'
 import ProductsContextProvider from './Contexts/ProductsContext'
 import AddProduct from './components/Admin/AddProduct/AddProduct'
 import Favorites from './components/Favorites/Favorites'
+import Order from './components/Order/Order'
 
 const MainRoutes = () => {
   const { user } = useAuth()
@@ -26,6 +27,7 @@ const MainRoutes = () => {
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/shoes" element={<ProductList />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/order" element={<Order />} />
       </Routes>
     </BrowserRouter>
   )
