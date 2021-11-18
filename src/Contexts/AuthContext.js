@@ -1,10 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react'
+import axios from 'axios'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
 import fire from '../fire'
 
 export const authContext = React.createContext()
 
 export const useAuth = () => {
   return useContext(authContext)
+}
+
+const INIT_STATE = {
+  favorites: [],
+}
+
+const reducer = (state = INIT_STATE, action) => {
+  switch(action.type) {
+    case "GET_FAV":
+      return {...state, favorites: action.payload}
+    default:
+        return state
+  }
+
 }
 
 const AuthContextProvider = ({ children }) => {
@@ -14,6 +29,7 @@ const AuthContextProvider = ({ children }) => {
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const [hasAccount, setHasAccount] = useState('')
+  const [state, dispatch] = useReducer(reducer, INIT_STATE)
 
   const clearInputs = () => {
     setEmail('')
@@ -51,6 +67,7 @@ const AuthContextProvider = ({ children }) => {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(() => userSet())
       .catch((error) => {
         switch (error.code) {
           case 'auth/email-already-in-use':
@@ -85,6 +102,44 @@ const AuthContextProvider = ({ children }) => {
     authListener()
   }, [])
 
+  async function userSet() {
+    let user = {
+      email: email,
+      favorites: []
+    }
+    await axios.post(`http://localhost:8000/users`, user)
+  }
+
+  
+
+  async function addProductToFavorites(shoe) {
+    let {data} = await axios(`http://localhost:8000/users`)
+    let users = [...data]
+    users.forEach(item => {
+      if(user.email === item.email) {
+        item.favorites.push(shoe)
+         axios.patch(`http://localhost:8000/users/${item.id}`, item)
+      }
+    });
+    getDataFavorites()
+  }
+  console.log(user)
+  async function getDataFavorites() {
+    let { data } = await axios(`http://localhost:8000/users`)
+    let users = [...data]
+    if(user) {
+      let fav = users.filter(item => item.email === user.email)
+      dispatch({
+        type: "GET_FAV",
+        payload: fav[0].favorites
+      })
+    }
+    
+  }
+  useEffect(() => {
+    getDataFavorites()
+  }, [user])
+
   const values = {
     email,
     user,
@@ -98,6 +153,9 @@ const AuthContextProvider = ({ children }) => {
     setHasAccount,
     emailError,
     passwordError,
+    addProductToFavorites,
+    favorites: state.favorites,
+    getDataFavorites
   }
 
   return <authContext.Provider value={values}>{children}</authContext.Provider>
