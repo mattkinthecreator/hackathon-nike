@@ -69,6 +69,25 @@
           ],
           "category": "Shoes",
           "id": 3
+        },
+        {
+          "title": "Adilet",
+          "price": "10000000",
+          "size": [
+            "36",
+            "38",
+            "41",
+            "43",
+            "44"
+          ],
+          "images": [
+            {
+              "color": "Yah",
+              "images": []
+            }
+          ],
+          "category": "Maadanov",
+          "id": 7
         }
       ],
       "id": 2
