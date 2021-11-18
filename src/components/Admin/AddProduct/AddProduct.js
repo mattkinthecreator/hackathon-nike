@@ -81,11 +81,15 @@ const AddProduct = () => {
         multiple
         onChange={(e) => handleImg(e)}
       />
-      <input
-        type="text"
-        placeholder="CATEGORY"
-        onChange={(e) => setCategory(e.target.value)}
-      />
+      <select size="3" multiple name="hero[]">
+        <option disabled>Категории</option>
+        <option value="Спортивный стиль" onClick={() => setCategory('Спортивный стиль')}>Спортивный стиль</option>
+        <option value="Jordan" onClick={() => setCategory('Jordan')}>Jordan</option>
+        <option value="Бег" onClick={() => setCategory('Бег')}>Бег</option>
+        <option value="Баскетбол" onClick={() => setCategory('Баскетбол')}>Баскетбол</option>
+        <option value="Футбол" onClick={() => setCategory('Футбол')}>Футбол</option>
+        <option value="Бейсбол" onClick={() => setCategory('Бейсбол')}>Бейсбол</option>
+   </select>
       <div className="sizes">
         <div className="size">
           <label>
