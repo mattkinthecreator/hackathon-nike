@@ -4,10 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 
 
 const Favorites = () => {
-
-    const { favorites, 
-        getDataFavorites
-    } = useContext(authContext)
+    const {favorites,  getDataFavorites} = useContext(authContext)
     console.log(favorites)
 
     useEffect(() => {
@@ -33,16 +30,6 @@ const Favorites = () => {
              <td><img src={item.images[0].images} width="200px" height="200px"/></td>
              <td>{item.title}</td>
              <td>{item.price}</td>
-             <td>
-               {/* <input
-                 value={item.count}
-                 type="number"
-                 onChange={(e) =>
-                   changeProductCount(e.target.value, item.id)
-                 }
-               /> */}
-             </td>
-             {/* <td>{elem.subPrice}</td> */}
            </tr>
          ))}
        </tbody>

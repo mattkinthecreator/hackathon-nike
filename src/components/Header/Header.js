@@ -71,9 +71,9 @@ const Header = () => {
               </Link>
             </div>
             <div className="header-mid-title">
-              <Link to="/favorites">
+              {email && <Link to="/favorites">
                 <FavoriteBorderIcon />
-              </Link>
+              </Link>}
               <Link to="/cart">
                 <ShoppingCartIcon />
               </Link>

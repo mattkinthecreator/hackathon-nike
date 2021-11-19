@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { productsContext } from '../../Contexts/ProductsContext'
 import CircularProgress from '@mui/material/CircularProgress'
 import './Cart.css'
+import { Link } from 'react-router-dom'
 const Cart = () => {
   const { getCart, cart, changeProductCount } = useContext(productsContext)
 
@@ -44,7 +45,9 @@ const Cart = () => {
             </tbody>
           </table>
           <h4>Total: {cart.totalPrice} </h4>
-          <button>Купить</button>
+          <Link to="/order">
+          <button className="buy">Купить</button>
+          </Link>
         </div>
       ) : (
         <CircularProgress />

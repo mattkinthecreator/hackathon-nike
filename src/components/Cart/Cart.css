@@ -9,8 +9,12 @@ td {
     justify-content: space-around;
     align-items: center;
 }
+
+.cart a{
+   display: block;
+}
   
-.cart button{
+.buy{
     background-color: #000;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
@@ -32,7 +36,7 @@ td {
     -webkit-user-select: none;
     vertical-align: top;
     white-space: nowrap;
-    width: 10%;
+    width: 100%;
     z-index: 9;
     border: 0;
 
