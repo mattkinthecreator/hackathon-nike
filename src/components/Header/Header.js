@@ -67,7 +67,9 @@ const Header = () => {
               <p>Женщины</p>
               <p>Дети</p>
               <p>Распродажа</p>
-              <p>Зимняя одежда</p>
+              <Link to="/cart">
+                <ShoppingCartIcon/>
+              </Link>
             </div>
             <div className="header-mid-search">
               <input type="text" placeholder="search..." />
