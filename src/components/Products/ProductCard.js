@@ -15,7 +15,7 @@ const ProductCard = ({ item }) => {
 
   return (
     <div class="card">
-      <img src={item.images[0].images} width="450px" height="400px" />
+      <img src={item.images[0].images} width="400px" height="400px" />
       <div class="container">
         <h2>{item.title}</h2>
         <p>{item.category}</p>

@@ -10,7 +10,7 @@ const ProductList = () => {
   const { getProducts, shoes } = useContext(productsContext)
   const [page, setPage] = useState(0)
 
-  const pageCount = Math.ceil(shoes.length / 4)
+  const pageCount = Math.ceil(shoes.length / 6)
 
   useEffect(() => {
     getProducts()
