@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: center;
     gap: 20px 20px;
-    background-color: rgb(100, 184, 184);
+    background-color: #f5f5f5;
 }
 
 input {
