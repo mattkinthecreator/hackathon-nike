@@ -13,13 +13,12 @@ const INIT_STATE = {
 }
 
 const reducer = (state = INIT_STATE, action) => {
-  switch(action.type) {
-    case "GET_FAV":
-      return {...state, favorites: action.payload}
+  switch (action.type) {
+    case 'GET_FAV':
+      return { ...state, favorites: action.payload }
     default:
-        return state
+      return state
   }
-
 }
 
 const AuthContextProvider = ({ children }) => {
@@ -105,36 +104,33 @@ const AuthContextProvider = ({ children }) => {
   async function userSet() {
     let user = {
       email: email,
-      favorites: []
+      favorites: [],
     }
     await axios.post(`http://localhost:8000/users`, user)
   }
 
-  
-
   async function addProductToFavorites(shoe) {
-    let {data} = await axios(`http://localhost:8000/users`)
+    let { data } = await axios(`http://localhost:8000/users`)
     let users = [...data]
-    users.forEach(item => {
-      if(user.email === item.email) {
+    users.forEach((item) => {
+      if (user.email === item.email) {
         item.favorites.push(shoe)
-         axios.patch(`http://localhost:8000/users/${item.id}`, item)
+        axios.patch(`http://localhost:8000/users/${item.id}`, item)
       }
-    });
+    })
     getDataFavorites()
   }
-  console.log(user)
+
   async function getDataFavorites() {
     let { data } = await axios(`http://localhost:8000/users`)
     let users = [...data]
-    if(user) {
-      let fav = users.filter(item => item.email === user.email)
+    if (user) {
+      let fav = users.filter((item) => item.email === user.email)
       dispatch({
-        type: "GET_FAV",
-        payload: fav[0].favorites
+        type: 'GET_FAV',
+        payload: fav[0].favorites,
       })
     }
-    
   }
   useEffect(() => {
     getDataFavorites()
@@ -155,7 +151,7 @@ const AuthContextProvider = ({ children }) => {
     passwordError,
     addProductToFavorites,
     favorites: state.favorites,
-    getDataFavorites
+    getDataFavorites,
   }
 
   return <authContext.Provider value={values}>{children}</authContext.Provider>

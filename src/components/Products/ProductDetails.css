@@ -1,0 +1,72 @@
+.shoes-details-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100vw;
+  margin-top: 50px;
+  padding: 0 25px;
+}
+
+.shoes-details__info {
+  max-width: 456px;
+  flex: 0 0 456px;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.shoes-details__info h2 {
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.007em;
+  font-size: 28px;
+}
+
+.shoes-details-category {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  padding-bottom: 4px;
+  font-size: 18px;
+}
+
+.shoes-details-price {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.shoes-details-cart-btn {
+  width: 80%;
+  padding: 18px 24px;
+  border-radius: 30px;
+  background: rgb(17, 17, 17);
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.shoes-color-btn {
+  background-color: transparent;
+  width: fit-content;
+}
+
+.shoes-color {
+  width: 69px;
+  height: 69px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.shoes-details__imgs {
+  display: flex;
+  flex-flow: wrap;
+  gap: 5px 5px;
+}
+
+.shoes-details-img {
+  object-fit: contain;
+  max-width: 388px;
+  max-height: 456px;
+}
