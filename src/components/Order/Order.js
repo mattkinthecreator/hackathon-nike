@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Cards from 'react-credit-cards';
-import 'react-credit-cards/es/styles-compiled.css';
-import './Order.css';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Cards from 'react-credit-cards'
+import 'react-credit-cards/es/styles-compiled.css'
+import './Order.css'
 
-const Order = (props) => {
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
+const Order = () => {
+  const [error, setError] = useState(false)
+  const [success, setSuccess] = useState(false)
 
   const [data, setData] = useState({
     cvc: '',
@@ -14,33 +14,43 @@ const Order = (props) => {
     focus: '',
     name: '',
     number: '',
-  });
+  })
 
-  let navigate = useNavigate();
+  const [address, setAddress] = useState('')
+  const [postalcode, setPostalcode] = useState('')
+
+  let navigate = useNavigate()
 
   const handleInputFocus = (e) => {
-    setData({ ...data, focus: e.target.name });
-  };
+    setData({ ...data, focus: e.target.name })
+  }
 
   const handleInputChange = (e) => {
     setData({
       ...data,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleOrder = (e) => {
-    e.preventDefault();
-    if (!data.cvc || !data.expiry || !data.name || !data.number) {
-      setError(true);
-      return;
+    e.preventDefault()
+    if (
+      !data.cvc ||
+      !data.expiry ||
+      !data.name.trim() ||
+      !data.number ||
+      !address.trim() ||
+      !postalcode
+    ) {
+      setError(true)
+      return
     }
-    setError(false);
-    setSuccess(true);
+    setError(false)
+    setSuccess(true)
     setTimeout(() => {
-      navigate('/');
-    });
-  };
+      navigate('/')
+    }, 1300)
+  }
 
   return (
     <div className="order-wrapper">
@@ -52,7 +62,7 @@ const Order = (props) => {
           name={data.name}
           number={data.number}
         />
-        <form>
+        <form className="order-form">
           <input
             type="text"
             name="name"
@@ -66,6 +76,7 @@ const Order = (props) => {
             placeholder="Card Number"
             onChange={handleInputChange}
             onFocus={handleInputFocus}
+            min="0"
           />
           <input
             type="number"
@@ -73,6 +84,7 @@ const Order = (props) => {
             placeholder="Expire Date"
             onChange={handleInputChange}
             onFocus={handleInputFocus}
+            min="0"
           />
           <input
             type="number"
@@ -80,23 +92,36 @@ const Order = (props) => {
             placeholder="CVC"
             onChange={handleInputChange}
             onFocus={handleInputFocus}
+            min="0"
           />
-          <input type="text" placeholder="Address" />
-          <input type="number" placeholder="Postcode" />
+          <input
+            type="text"
+            placeholder="Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Postcode"
+            min="0"
+            value={postalcode}
+            onChange={(e) => setPostalcode(e.target.value)}
+          />
           {error && <p className="order-error">Fill all the fields</p>}
           <button className="order-btn" onClick={handleOrder}>
-            Order
+            ORDER
           </button>
         </form>
       </div>
       {success && (
-        <div>
+        <div class="success-wrapper">
           <h2 className="success-title">Successful order</h2>
-          <div class="success-wrapper">
+          <div>
             <svg
               class="checkmark"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 52 52">
+              viewBox="0 0 52 52"
+            >
               <circle
                 class="checkmark__circle"
                 cx="26"
@@ -114,7 +139,7 @@ const Order = (props) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Order;
+export default Order
