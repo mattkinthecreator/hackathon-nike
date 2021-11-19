@@ -3,7 +3,7 @@ import './Header.css'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../Contexts/AuthContext'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const Header = () => {
   const {
@@ -62,11 +62,9 @@ const Header = () => {
             </Link>
             </div>
             <div className="header-mid-title">
-              <p>Новинки</p>
-              <p>Мужчины</p>
-              <p>Женщины</p>
-              <p>Дети</p>
-              <p>Распродажа</p>
+              <Link to="/favorites">
+                <FavoriteBorderIcon/>
+              </Link>
               <Link to="/cart">
                 <ShoppingCartIcon/>
               </Link>
@@ -79,7 +77,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="info">info</div>
+      <div className="info"></div>
     </div>
   )
 }

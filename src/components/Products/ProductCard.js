@@ -24,8 +24,12 @@ const ProductCard = ({ item }) => {
           <Link to={`shoes/${item.id}`}>
             <DetailsIcon/>
           </Link>
-          <span onClick={() => addProductToCart(item)}><AddShoppingCart/></span>
-          <span onClick={() => addProductToFavorites(item)}> <FavoriteBorderIcon/></span>
+          <Link to="/">
+          <AddShoppingCart onClick={() => addProductToCart(item)}/>
+          </Link>
+          <Link to="/">
+            <FavoriteBorderIcon onClick={() => addProductToFavorites(item)}/>
+          </Link>
         </div>
       </div>
     </div>
