@@ -50,6 +50,7 @@
 .shoes-color-btn {
   background-color: transparent;
   width: fit-content;
+  border: 1px solid #000;
 }
 
 .shoes-color {

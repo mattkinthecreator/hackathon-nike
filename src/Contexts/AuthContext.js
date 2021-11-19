@@ -29,6 +29,9 @@ const AuthContextProvider = ({ children }) => {
   const [passwordError, setPasswordError] = useState('')
   const [hasAccount, setHasAccount] = useState('')
   const [state, dispatch] = useReducer(reducer, INIT_STATE)
+  const [isAdmin, setIsAdmin] = useState(false)
+
+  const admins = ['maadanov03@gmail.com', 'bekievbeil@gmail.com']
 
   const clearInputs = () => {
     setEmail('')
@@ -91,8 +94,14 @@ const AuthContextProvider = ({ children }) => {
       if (user) {
         clearInputs()
         setUser(user)
+        for (let adminEmail of admins) {
+          if (user.email === adminEmail) {
+            setIsAdmin(true)
+          }
+        }
       } else {
         setUser('')
+        setIsAdmin(false)
       }
     })
   }
@@ -152,6 +161,7 @@ const AuthContextProvider = ({ children }) => {
     addProductToFavorites,
     favorites: state.favorites,
     getDataFavorites,
+    isAdmin,
   }
 
   return <authContext.Provider value={values}>{children}</authContext.Provider>

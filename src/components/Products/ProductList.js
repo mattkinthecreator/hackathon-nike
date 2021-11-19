@@ -16,7 +16,7 @@ const ProductList = () => {
     getProducts()
   }, [])
 
-  function changePage({selected}) {
+  function changePage({ selected }) {
     setPage(selected)
   }
 
@@ -25,35 +25,32 @@ const ProductList = () => {
   const pageVisited = page * productrsPerPage
   const displayProducts = shoes
     .slice(pageVisited, pageVisited + productrsPerPage)
-    .map((item) => <ProductCard key={item.id} item={item}/>)
-
+    .map((item) => <ProductCard key={item.id} item={item} />)
 
   return (
     <>
-    <div className="product-list">
-         <div className="container-product">
+      <div className="product-list">
+        <div className="container-product">
           <div>
-              <Sidebar />
-            </div>
-            <div className="cards">
-              {displayProducts}
-            </div>
-         </div>
-            <div className="paginate">
-              <ReactPaginate
-                  previousLabel={"<"}
-                  nextLabel={">"}
-                  pageCount={pageCount}
-                  onPageChange={changePage}
-                  containerClassName={"paginationBttns"}
-                  previousLabelClassName={"previousBttn"}
-                  nextLabelClassName={"nextBttn"}
-                  disabledClassName={"paginationDisabled"}
-                  activeClassName={"paginationActive"}
-                />
-            </div>
-    </div>
-   </>
+            <Sidebar />
+          </div>
+          <div className="cards">{displayProducts}</div>
+        </div>
+        <div className="paginate">
+          <ReactPaginate
+            previousLabel={'<'}
+            nextLabel={'>'}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={'paginationBttns'}
+            previousLabelClassName={'previousBttn'}
+            nextLabelClassName={'nextBttn'}
+            disabledClassName={'paginationDisabled'}
+            activeClassName={'paginationActive'}
+          />
+        </div>
+      </div>
+    </>
   )
 }
 

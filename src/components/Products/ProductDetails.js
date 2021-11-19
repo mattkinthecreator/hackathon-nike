@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { useAuth } from '../../Contexts/AuthContext'
 import { productsContext } from '../../Contexts/ProductsContext'
 import AddColorImage from '../AddColorImage/AddColorImage'
 import './ProductDetails.css'
@@ -10,6 +11,8 @@ const ProductDetails = () => {
 
   const [color, setColor] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const { isAdmin } = useAuth()
 
   let id = useParams().id
 
@@ -22,13 +25,11 @@ const ProductDetails = () => {
       {currentProduct.title ? (
         <div className="shoes-details-wrapper">
           <div className="shoes-details__imgs">
-            {currentProduct.images[color].images.map((item) => (
-              <img
-                src={item}
-                alt={currentProduct.title}
-                className="shoes-details-img"
-              />
-            ))}
+            <img
+              src={currentProduct.images[color].images}
+              alt={currentProduct.title}
+              className="shoes-details-img"
+            />
           </div>
           <div className="shoes-details__info">
             <h2>{currentProduct.title}</h2>
@@ -42,7 +43,7 @@ const ProductDetails = () => {
                   className="shoes-color-btn"
                 >
                   <img
-                    src={item.images[0]}
+                    src={item.images}
                     alt={item.color}
                     className="shoes-color"
                   />
@@ -55,7 +56,11 @@ const ProductDetails = () => {
             >
               Add to cart
             </button>
-            <button onClick={() => setIsModalOpen(true)}>Add new color</button>
+            {isAdmin && (
+              <button onClick={() => setIsModalOpen(true)}>
+                Add new color
+              </button>
+            )}
           </div>
         </div>
       ) : (
