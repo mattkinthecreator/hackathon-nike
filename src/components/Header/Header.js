@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../Contexts/AuthContext'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 import { productsContext } from '../../Contexts/ProductsContext'
 
 const Header = () => {
@@ -14,7 +16,7 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div className="container">
+      <div className="container-header">
         <div className="header-top">
           <div className="header-top-icon">
             <svg height="24px" width="24px" fill="#111" viewBox="0 0 26 32">
@@ -38,9 +40,10 @@ const Header = () => {
         </div>
       </div>
       <div className="mid-bg">
-        <div className="container">
+        <div className="container-header">
           <div className="header-mid">
             <div className="header-mid-icon">
+            <Link to="/">
               <svg
                 id="Layer_1"
                 data-name="Layer 1"
@@ -59,6 +62,7 @@ const Header = () => {
                   transform="translate(-49.19 -183.61)"
                 />
               </svg>
+            </Link>
             </div>
             <div className="header-mid-title">
               <p>Новинки</p>
@@ -66,8 +70,9 @@ const Header = () => {
               <p>Женщины</p>
               <p>Дети</p>
               <p>Распродажа</p>
-              <p>Зимняя одежда</p>
-              <p>Коллекции</p>
+              <Link to="/cart">
+                <ShoppingCartIcon/>
+              </Link>
             </div>
             <div className="header-mid-search">
               <input
