@@ -4,6 +4,7 @@ import { productsContext } from '../../Contexts/ProductsContext'
 import './Product.css'
 import Sidebar from '../Home/Sidebar'
 import ReactPaginate from 'react-paginate'
+import { useParams } from 'react-router'
 
 const ProductList = () => {
   const { getProducts, shoes } = useContext(productsContext)

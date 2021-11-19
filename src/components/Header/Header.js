@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../Contexts/AuthContext'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { productsContext } from '../../Contexts/ProductsContext'
+
 
 const Header = () => {
   const {
     handleLogOut,
     user: { email },
   } = useAuth()
+
+  const { getProducts } = useContext(productsContext)
 
   return (
     <div className="header">
@@ -70,9 +74,11 @@ const Header = () => {
               </Link>
             </div>
             <div className="header-mid-search">
-              <input type="text" placeholder="search..." />
-              {/* <img src="#"/> 
-                                <img src="#"/> */}
+              <input
+                type="text"
+                placeholder="search..."
+                onChange={(e) => getProducts(`q=${e.target.value}`)}
+              />
             </div>
           </div>
         </div>

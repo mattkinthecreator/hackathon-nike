@@ -7,14 +7,16 @@ import AddShoppingCart from '@mui/icons-material/AddShoppingCart'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import DetailsIcon from '@mui/icons-material/Details';
 
+
 const ProductCard = ({ item }) => {
   const { addProductToCart } = useContext(productsContext)
   const { addProductToFavorites } = useContext(authContext)
+  console.log(item)
 
   return (
     <div class="card">
-      <img src={item.images[0].images} width="450px" height="400px" />
-      <div class="container-productCard">
+      <img src={item.images[0].images[0]} width="450px" height="400px" />
+      <div class="container">
         <h2>{item.title}</h2>
         <p>{item.category}</p>
         <p>{item.images.map((elem) => elem.color)}</p>
