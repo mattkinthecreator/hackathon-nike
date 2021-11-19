@@ -7,7 +7,7 @@ const AddProduct = () => {
   const [price, setPrice] = useState('')
   const [size, setSize] = useState([])
   const [imgColor, setImgColor] = useState('')
-  const [img, setImg] = useState([])
+  const [img, setImg] = useState('')
   const [category, setCategory] = useState('')
 
   function handleAddProduct() {
@@ -43,19 +43,6 @@ const AddProduct = () => {
     }
   }
 
-  function handleImg(e) {
-    const files = e.target.files
-    let newArr = []
-    for (let file of files) {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        newArr.push(reader.result)
-      }
-      reader.readAsDataURL(file)
-    }
-    setImg(newArr)
-  }
-
   return (
     <div className="addProduct">
       <h2>Add product</h2>
@@ -75,21 +62,36 @@ const AddProduct = () => {
         onChange={(e) => setImgColor(e.target.value)}
       />
       <input
-        type="file"
+        type="text"
         placeholder="IMAGE"
         accept=".jpg, .jpeg, .png"
         multiple
-        onChange={(e) => handleImg(e)}
+        onChange={(e) => setImg(e.target.value)}
       />
       <select size="3" multiple name="hero[]">
         <option disabled>Категории</option>
-        <option value="Спортивный стиль" onClick={() => setCategory('Спортивный стиль')}>Спортивный стиль</option>
-        <option value="Jordan" onClick={() => setCategory('Jordan')}>Jordan</option>
-        <option value="Бег" onClick={() => setCategory('Бег')}>Бег</option>
-        <option value="Баскетбол" onClick={() => setCategory('Баскетбол')}>Баскетбол</option>
-        <option value="Футбол" onClick={() => setCategory('Футбол')}>Футбол</option>
-        <option value="Бейсбол" onClick={() => setCategory('Бейсбол')}>Бейсбол</option>
-   </select>
+        <option
+          value="Спортивный стиль"
+          onClick={() => setCategory('Спортивный стиль')}
+        >
+          Спортивный стиль
+        </option>
+        <option value="Jordan" onClick={() => setCategory('Jordan')}>
+          Jordan
+        </option>
+        <option value="Бег" onClick={() => setCategory('Бег')}>
+          Бег
+        </option>
+        <option value="Баскетбол" onClick={() => setCategory('Баскетбол')}>
+          Баскетбол
+        </option>
+        <option value="Футбол" onClick={() => setCategory('Футбол')}>
+          Футбол
+        </option>
+        <option value="Бейсбол" onClick={() => setCategory('Бейсбол')}>
+          Бейсбол
+        </option>
+      </select>
       <div className="sizes">
         <div className="size">
           <label>
@@ -126,7 +128,7 @@ const AddProduct = () => {
         </div>
         <div className="size">
           <label>
-            3
+            39
             <input
               type="checkbox"
               placeholder="size"
@@ -191,7 +193,9 @@ const AddProduct = () => {
           </label>
         </div>
       </div>
-      <button onClick={handleAddProduct}>Add</button>
+      <button onClick={handleAddProduct} className="add-btn">
+        Add
+      </button>
     </div>
   )
 }

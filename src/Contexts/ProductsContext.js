@@ -62,32 +62,36 @@ const ProductsContextProvider = ({ children }) => {
     setIsEdit((state) => !state)
   }
   const addProductToCart = (shoes) => {
-    let cart = JSON.parse(localStorage.getItem('cart'))
-    if (!cart) {
-      cart = {
-        shoes: [],
-        totalPrice: 0,
+    try {
+      let cart = JSON.parse(localStorage.getItem('cart'))
+      if (!cart) {
+        cart = {
+          shoes: [],
+          totalPrice: 0,
+        }
       }
+      let newProduct = {
+        item: shoes,
+        count: 1,
+        subPrice: 0,
+      }
+      console.log(cart)
+      let filteredCart = cart.shoes.filter((elem) => elem.item.id === shoes.id)
+      if (filteredCart.length > 0) {
+        cart.shoes = cart.shoes.filter((elem) => elem.item.id !== shoes.id)
+      } else {
+        cart.shoes.push(newProduct)
+      }
+      newProduct.subPrice = calcSubPrice(newProduct)
+      cart.totalPrice = calcTotalPrice(cart.shoes)
+      localStorage.setItem('cart', JSON.stringify(cart))
+      dispatch({
+        type: 'CHANGE_CART_COUNT',
+        payload: cart.shoes.length,
+      })
+    } catch (e) {
+      console.log('. ')
     }
-    let newProduct = {
-      item: shoes,
-      count: 1,
-      subPrice: 0,
-    }
-    console.log(cart)
-    let filteredCart = cart.shoes.filter((elem) => elem.item.id === shoes.id)
-    if (filteredCart.length > 0) {
-      cart.shoes = cart.shoes.filter((elem) => elem.item.id !== shoes.id)
-    } else {
-      cart.shoes.push(newProduct)
-    }
-    newProduct.subPrice = calcSubPrice(newProduct)
-    cart.totalPrice = calcTotalPrice(cart.shoes)
-    localStorage.setItem('cart', JSON.stringify(cart))
-    dispatch({
-      type: 'CHANGE_CART_COUNT',
-      payload: cart.shoes.length,
-    })
   }
 
   const getCart = () => {

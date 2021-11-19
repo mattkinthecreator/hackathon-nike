@@ -2,12 +2,13 @@ import React, { useContext } from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../Contexts/AuthContext'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { productsContext } from '../../Contexts/ProductsContext'
 
 const Header = () => {
   const {
+    isAdmin,
     handleLogOut,
     user: { email },
   } = useAuth()
@@ -24,6 +25,11 @@ const Header = () => {
             </svg>
           </div>
           <div className="header-top-title">
+            {isAdmin && (
+              <Link to="/admin">
+                <p>Админ панель</p>
+              </Link>
+            )}
             <p>Помощь</p>
             <p>Давай с нами</p>
             {email ? (
@@ -43,35 +49,33 @@ const Header = () => {
         <div className="container-header">
           <div className="header-mid">
             <div className="header-mid-icon">
-            <Link to="/">
-              <svg
-                id="Layer_1"
-                data-name="Layer 1"
-                height="60px"
-                width="60px"
-                fill="#111"
-                viewBox="0 0 69 32"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 413.62 144.78"
-              >
-                <defs></defs>
-                <title>nike-swoosh-logo</title>
-                <path
-                  class="cls-1"
-                  d="M462.81,183.61,160.21,312.47Q122.57,328.39,97,328.39q-29,0-42-20.27-8.2-13-4.83-33.06T68,232.35Q80.1,214,107.61,184.09a105.53,105.53,0,0,0-13.51,31.85q-7.24,30.89,13,45.37,9.65,6.76,26.54,6.76a123.37,123.37,0,0,0,30.4-4.34Z"
-                  transform="translate(-49.19 -183.61)"
-                />
-              </svg>
-            </Link>
+              <Link to="/">
+                <svg
+                  id="Layer_1"
+                  data-name="Layer 1"
+                  height="60px"
+                  width="60px"
+                  fill="#111"
+                  viewBox="0 0 69 32"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 413.62 144.78"
+                >
+                  <defs></defs>
+                  <title>nike-swoosh-logo</title>
+                  <path
+                    class="cls-1"
+                    d="M462.81,183.61,160.21,312.47Q122.57,328.39,97,328.39q-29,0-42-20.27-8.2-13-4.83-33.06T68,232.35Q80.1,214,107.61,184.09a105.53,105.53,0,0,0-13.51,31.85q-7.24,30.89,13,45.37,9.65,6.76,26.54,6.76a123.37,123.37,0,0,0,30.4-4.34Z"
+                    transform="translate(-49.19 -183.61)"
+                  />
+                </svg>
+              </Link>
             </div>
             <div className="header-mid-title">
-              <p>Новинки</p>
-              <p>Мужчины</p>
-              <p>Женщины</p>
-              <p>Дети</p>
-              <p>Распродажа</p>
+              <Link to="/favorites">
+                <FavoriteBorderIcon />
+              </Link>
               <Link to="/cart">
-                <ShoppingCartIcon/>
+                <ShoppingCartIcon />
               </Link>
             </div>
             <div className="header-mid-search">
@@ -84,7 +88,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="info">info</div>
+      <div className="info"></div>
     </div>
   )
 }
