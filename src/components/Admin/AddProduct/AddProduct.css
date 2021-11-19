@@ -6,15 +6,15 @@
 }
 
 .addProduct {
-  margin: 10% auto;
-  width: 500px;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px 20px;
-  background-color: #f5f5f5;
+    margin: 10% auto;
+    width: 500px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px 20px;
+    background-color: #f5f5f5;
 }
 
 input {
