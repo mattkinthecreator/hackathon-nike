@@ -1,0 +1,21 @@
+td {
+    padding: 10px 40px;
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
+
+.cart {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+  
+.cart button{
+ width: 60px;
+ height: 20px;
+}
+
+.cart h4{
+    width: 200px;
+    height: 40px;
+   }

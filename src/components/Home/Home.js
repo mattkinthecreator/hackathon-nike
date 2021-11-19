@@ -6,7 +6,6 @@ import Sidebar from './Sidebar'
 const Home = () => {
   return (
     <div>
-      {/* <Sidebar /> */}
       <ProductList />
     </div>
   )

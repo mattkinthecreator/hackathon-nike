@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { authContext } from '../../Contexts/AuthContext';
+import CircularProgress from '@mui/material/CircularProgress'
+
 
 const Favorites = () => {
 
@@ -13,19 +15,43 @@ const Favorites = () => {
     }, [])
 
     return (
-        <>
+        <div>
+            <h1>ИЗБРАННОЕ</h1>
+            {favorites ? (
+        <div className="cart">
+          <table>
+            <thead>
+              <tr className="cart__tr">
+                <th>Image</th>
+                <th>Title</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
         {favorites.map((item) => (
-            <div>
-                <img src={item.images[0].images} width="200px" height="200px"/>
-                <h2>CATEGORY: {item.category}</h2>
-                <h2>TITLE: {item.title}</h2>
-                <p>SIZE: {item.size}</p>
-                <p>COLOR: {item.images[0].color}</p>
-                <p>PRICE: {item.price}$</p>
-            </div>
-        ))}
-        </>
-    );
-}
+             <tr key={item.id} className="cart__td">
+             <td><img src={item.images[0].images} width="200px" height="200px"/></td>
+             <td>{item.title}</td>
+             <td>{item.price}</td>
+             <td>
+               {/* <input
+                 value={item.count}
+                 type="number"
+                 onChange={(e) =>
+                   changeProductCount(e.target.value, item.id)
+                 }
+               /> */}
+             </td>
+             {/* <td>{elem.subPrice}</td> */}
+           </tr>
+         ))}
+       </tbody>
+     </table>
+     </div>
+         ) : (
+            <CircularProgress />
+          )}
+</div>
+    )}
 
 export default Favorites;

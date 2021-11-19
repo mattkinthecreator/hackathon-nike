@@ -3,7 +3,13 @@
     {
       "title": "Jordan 1",
       "price": "150",
-      "size": ["36", "41", "37", "38", "42"],
+      "size": [
+        "36",
+        "41",
+        "37",
+        "38",
+        "42"
+      ],
       "images": [
         {
           "color": "Blue",
@@ -20,7 +26,32 @@
     {
       "title": "Jordan 1",
       "price": 120,
-      "size": ["36", "41", "37", "38", "42"],
+      "size": [
+        "36",
+        "41",
+        "37",
+        "38",
+        "42"
+      ],
+      "images": [
+        {
+          "color": "Blue",
+          "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+        }
+      ],
+      "category": "Jordan",
+      "id": 2
+    },
+    {
+      "title": "Jordan 1",
+      "price": 120,
+      "size": [
+        "36",
+        "41",
+        "37",
+        "38",
+        "42"
+      ],
       "images": [
         {
           "color": "Blue",
@@ -29,6 +60,120 @@
       ],
       "category": "Jordan",
       "id": 5
+    },
+    {
+      "title": "Jordan 1",
+      "price": 120,
+      "size": [
+        "36",
+        "41",
+        "37",
+        "38",
+        "42"
+      ],
+      "images": [
+        {
+          "color": "Blue",
+          "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+        }
+      ],
+      "category": "Jordan",
+      "id": 6
+    },
+    {
+      "title": "Jordan 1",
+      "price": 120,
+      "size": [
+        "36",
+        "41",
+        "37",
+        "38",
+        "42"
+      ],
+      "images": [
+        {
+          "color": "Blue",
+          "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+        }
+      ],
+      "category": "Jordan",
+      "id": 52
+    },
+    {
+      "title": "Jordan 1",
+      "price": 120,
+      "size": [
+        "36",
+        "41",
+        "37",
+        "38",
+        "42"
+      ],
+      "images": [
+        {
+          "color": "Blue",
+          "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+        }
+      ],
+      "category": "Jordan",
+      "id": 9
+    },
+    {
+      "title": "Jordan 1",
+      "price": 120,
+      "size": [
+        "36",
+        "41",
+        "37",
+        "38",
+        "42"
+      ],
+      "images": [
+        {
+          "color": "Blue",
+          "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+        }
+      ],
+      "category": "Jordan",
+      "id": 8
+    },
+    {
+      "title": "Jordan 1",
+      "price": 120,
+      "size": [
+        "36",
+        "41",
+        "37",
+        "38",
+        "42"
+      ],
+      "images": [
+        {
+          "color": "Blue",
+          "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+        }
+      ],
+      "category": "Jordan",
+      "id": 13
+    },
+    {
+      "title": "Jordan 1",
+      "price": 120,
+      "size": [
+        "36",
+        "41",
+        "37",
+        "38",
+        "42"
+      ],
+      "images": [
+        {
+          "color": "Blue",
+          "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+        }
+      ],
+      "category": "Jordan",
+      "id": 11
     }
   ],
   "users": [
@@ -88,9 +233,164 @@
           ],
           "category": "Maadanov",
           "id": 7
+        },
+        {
+          "title": "Jordan 1",
+          "price": "150",
+          "size": [
+            "36",
+            "41",
+            "37",
+            "38",
+            "42"
+          ],
+          "images": [
+            {
+              "color": "Blue",
+              "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+            },
+            {
+              "color": "Chicago",
+              "images": "https://interzapas.com/wp-content/uploads/2020/08/Nike-Air-Jordan-1-Chicago-1.jpg"
+            }
+          ],
+          "category": "Jordan",
+          "id": 4
+        },
+        {
+          "title": "Jordan 1",
+          "price": "150",
+          "size": [
+            "36",
+            "41",
+            "37",
+            "38",
+            "42"
+          ],
+          "images": [
+            {
+              "color": "Blue",
+              "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+            },
+            {
+              "color": "Chicago",
+              "images": "https://interzapas.com/wp-content/uploads/2020/08/Nike-Air-Jordan-1-Chicago-1.jpg"
+            }
+          ],
+          "category": "Jordan",
+          "id": 4
         }
       ],
       "id": 2
+    },
+    {
+      "email": "maadanov04@gmail.com",
+      "favorites": [
+        {
+          "title": "Jordan 1",
+          "price": "150",
+          "size": [
+            "36",
+            "41",
+            "37",
+            "38",
+            "42"
+          ],
+          "images": [
+            {
+              "color": "Blue",
+              "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+            },
+            {
+              "color": "Chicago",
+              "images": "https://interzapas.com/wp-content/uploads/2020/08/Nike-Air-Jordan-1-Chicago-1.jpg"
+            }
+          ],
+          "category": "Jordan",
+          "id": 4
+        },
+        {
+          "title": "Jordan 1",
+          "price": "150",
+          "size": [
+            "36",
+            "41",
+            "37",
+            "38",
+            "42"
+          ],
+          "images": [
+            {
+              "color": "Blue",
+              "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+            },
+            {
+              "color": "Chicago",
+              "images": "https://interzapas.com/wp-content/uploads/2020/08/Nike-Air-Jordan-1-Chicago-1.jpg"
+            }
+          ],
+          "category": "Jordan",
+          "id": 4
+        },
+        {
+          "title": "Jordan 1",
+          "price": 120,
+          "size": [
+            "36",
+            "41",
+            "37",
+            "38",
+            "42"
+          ],
+          "images": [
+            {
+              "color": "Blue",
+              "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+            }
+          ],
+          "category": "Jordan",
+          "id": 2
+        },
+        {
+          "title": "Jordan 1",
+          "price": 120,
+          "size": [
+            "36",
+            "41",
+            "37",
+            "38",
+            "42"
+          ],
+          "images": [
+            {
+              "color": "Blue",
+              "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+            }
+          ],
+          "category": "Jordan",
+          "id": 2
+        },
+        {
+          "title": "Jordan 1",
+          "price": 120,
+          "size": [
+            "36",
+            "41",
+            "37",
+            "38",
+            "42"
+          ],
+          "images": [
+            {
+              "color": "Blue",
+              "images": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6bf47533-8f67-4614-b0e2-4c5b8ccce1bc/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-jordan-1-mid-cQ5Jpt.png"
+            }
+          ],
+          "category": "Jordan",
+          "id": 2
+        }
+      ],
+      "id": 3
     }
   ]
 }
