@@ -2,8 +2,7 @@ import React from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../Contexts/AuthContext'
-import AddShoppingCart from '@mui/icons-material/AddShoppingCart'
-import Badge from 'material-ui/Badge'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 const Header = () => {
