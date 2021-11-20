@@ -1,0 +1,20 @@
+.admin-header {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.admin-header p{
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+
+.admin-header p:hover{
+    background-color: #b4acac;
+}
+
+
+

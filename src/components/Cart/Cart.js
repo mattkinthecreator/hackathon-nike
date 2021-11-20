@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { productsContext } from '../../Contexts/ProductsContext'
 import CircularProgress from '@mui/material/CircularProgress'
-
+import './Cart.css'
 const Cart = () => {
   const { getCart, cart, changeProductCount } = useContext(productsContext)
 
@@ -10,12 +10,12 @@ const Cart = () => {
   }, [])
 
   return (
-    <div className="cart">
+    <div>
       {cart.shoes ? (
-        <div>
+        <div className="cart">
           <table>
             <thead>
-              <tr>
+              <tr className="cart__tr">
                 <th>Image</th>
                 <th>Title</th>
                 <th>Price</th>
@@ -25,8 +25,8 @@ const Cart = () => {
             </thead>
             <tbody>
               {cart.shoes.map((elem) => (
-                <tr key={elem.item.id}>
-                  <td></td>
+                <tr key={elem.item.id} className="cart__td">
+                  <td><img src={elem.item.images[0].images} width="200px" height="200px"/></td>
                   <td>{elem.item.title}</td>
                   <td>{elem.item.price}</td>
                   <td>
@@ -38,7 +38,7 @@ const Cart = () => {
                       }
                     />
                   </td>
-                  <td></td>
+                  <td>{elem.subPrice}</td>
                 </tr>
               ))}
             </tbody>

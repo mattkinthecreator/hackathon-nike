@@ -1,0 +1,44 @@
+td {
+    padding: 10px 40px;
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
+
+.cart {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+  
+.cart button{
+    background-color: #000;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter, -apple-system, system-ui, Roboto, 'Helvetica Neue', Arial,
+      sans-serif;
+    height: 44px;
+    line-height: 44px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 10%;
+    z-index: 9;
+    border: 0;
+
+}
+
+.cart h4{
+    width: 200px;
+    height: 40px;
+   }

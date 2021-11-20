@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import AddProduct from '../AddProduct/AddProduct'
 import EditProduct from '../EditProduct/EditProduct'
+import './AdminPanel.css'
 
 const AdminPanel = () => {
   const [switchPanel, setSwitchPanel] = useState('add')

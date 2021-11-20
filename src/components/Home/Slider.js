@@ -3,12 +3,14 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { productsContext } from '../../Contexts/ProductsContext';
 import history from "../../helpers/history";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import getMuiTheme from "material-ui/styles/getMuiTheme";
 function valuetext(value) {
   return `${value} $`;
 }
 
 export default function RangeSlider() {
-  const [value, setValue] = React.useState([0, 200]);
+  const [value, setValue] = React.useState([0, 400]);
 
   const { getProducts } = React.useContext(productsContext);
 
@@ -21,16 +23,26 @@ export default function RangeSlider() {
     getProducts(search.toString());
   };
 
+  
+const muiTheme = getMuiTheme({
+  slider: {
+    trackColor: "yellow",
+    selectionColor: "red"
+  }
+});
+
   return (
-    <Box sx={{ width: 150 }}>
-      <Slider
-        getAriaLabel={() => "price range"}
-        value={value}
-        max={200}
-        onChange={handleChange}
-        valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
-      />
-    </Box>
+    <Box sx={{ width: 100}}>
+        <MuiThemeProvider muiTheme={muiTheme}>
+        <Slider
+          getAriaLabel={() => "price range"}
+          value={value}
+          max={400}
+          onChange={handleChange}
+          valueLabelDisplay="auto"
+          getAriaValueText={valuetext}
+        />
+    </MuiThemeProvider>
+      </Box>
   );
 }
