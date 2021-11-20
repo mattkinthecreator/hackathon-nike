@@ -57,7 +57,10 @@ const ProductDetails = () => {
               Add to cart
             </button>
             {isAdmin && (
-              <button onClick={() => setIsModalOpen(true)}>
+              <button
+                onClick={() => setIsModalOpen((prev) => !prev)}
+                className="shoes-details-cart-btn"
+              >
                 Add new color
               </button>
             )}

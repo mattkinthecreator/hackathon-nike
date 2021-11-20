@@ -1,24 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { productsContext } from '../../Contexts/ProductsContext'
+import './AddColorImage.css'
 
 const AddColorImage = ({ currentProduct, setIsModalOpen }) => {
   const { addNewColorImage } = useContext(productsContext)
 
   const [imgColor, setImgColor] = useState('')
-  const [img, setImg] = useState([])
-
-  function handleImg(e) {
-    const files = e.target.files
-    let newArr = []
-    for (let file of files) {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        newArr.push(reader.result)
-      }
-      reader.readAsDataURL(file)
-    }
-    setImg(newArr)
-  }
+  const [img, setImg] = useState('')
 
   function handleAddNewColor() {
     let newColor = {
@@ -33,18 +21,17 @@ const AddColorImage = ({ currentProduct, setIsModalOpen }) => {
   }
 
   return (
-    <div>
+    <div className="add-color-modal">
       <input
         value={imgColor}
         type="text"
-        placeholder="color"
+        placeholder="Color"
         onChange={(e) => setImgColor(e.target.value)}
       />
       <input
-        type="file"
-        accept=".jpg, .jpeg, .png"
-        multiple
-        onChange={(e) => handleImg(e)}
+        type="text"
+        onChange={(e) => setImg(e.target.value)}
+        placeholder="Image"
       />
       <button onClick={handleAddNewColor}>Add</button>
     </div>
