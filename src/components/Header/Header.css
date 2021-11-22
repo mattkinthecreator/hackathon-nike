@@ -84,3 +84,11 @@
     display: flex;
     justify-content: center;
 }
+
+@media all and (max-width: 550px) { 
+    .header-mid-search input{
+        width: 40%;
+        height: 10px;
+    }
+  
+  }

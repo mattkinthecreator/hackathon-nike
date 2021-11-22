@@ -52,6 +52,7 @@ const Cart = () => {
                     onChange={(e) =>
                       changeProductCount(e.target.value, elem.item.id)
                     }
+                    min={1}
                   />
                 </div>
                 <div className="prices">
