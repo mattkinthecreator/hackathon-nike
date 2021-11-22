@@ -18,7 +18,7 @@ const Favorites = () => {
 
     return (
         <div className="all">
-          {favorites ? (
+          {favorites ? ( 
             <div className="cart">
               <h1>Избранное</h1>
               <div className="cart-container">
