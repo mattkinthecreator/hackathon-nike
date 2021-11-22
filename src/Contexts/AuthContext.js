@@ -140,7 +140,6 @@ const AuthContextProvider = ({ children }) => {
     let users = [...data]
     if (user) {
       let fav = users.filter((item) => item.email === user.email)
-      console.log(fav)
       dispatch({
         type: 'GET_FAV',
         payload: fav[0].favorites,
