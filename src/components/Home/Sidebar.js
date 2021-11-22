@@ -4,8 +4,9 @@ import history from '../../helpers/history'
 import '../Home/Category/Category.css'
 import './Sidebar.css'
 import cx from 'classnames'
-import { CSSTransition } from 'react-transition-group'
 import Slider from './Slider'
+import { CSSTransition } from 'react-transition-group'
+
 
 const menuItems = [
   { title: 'Спортивный стиль' },
