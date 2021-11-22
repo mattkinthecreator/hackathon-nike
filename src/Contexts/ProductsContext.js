@@ -122,6 +122,18 @@ const ProductsContextProvider = ({ children }) => {
     getCart()
   }
 
+  function removeProductToCart(item) {
+    console.log(item, 'aasasasasas')
+    let data = JSON.parse(localStorage.getItem('cart'))
+    console.log(data, '...........')
+    const product = {...data}
+    product.shoes = product.shoes.filter(elem => elem.item.id !== item.id)
+    console.log(product)
+    localStorage.setItem('cart', JSON.stringify(product))
+    getCart()
+    changeProductCount()
+  }
+
   async function saveEditShoe(id, shoe, searchVal) {
     await axios.patch(`http://localhost:8000/shoes/${id}`, shoe)
     toggleModal()
@@ -160,6 +172,7 @@ const ProductsContextProvider = ({ children }) => {
         saveEditShoe,
         getCurrentProduct,
         addNewColorImage,
+        removeProductToCart
       }}
     >
       {children}
