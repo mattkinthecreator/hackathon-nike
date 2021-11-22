@@ -3,6 +3,7 @@ import EditIcon from '../../../assets/img/edit.png'
 import DeleteIcon from '../../../assets/img/x.png'
 import { productsContext } from '../../../Contexts/ProductsContext'
 import EditModal from '../EditModal/EditModal'
+import './EditProduct.css'
 
 const EditProduct = () => {
   const { handleEditProduct, handleDeleteProduct, isEdit, getProducts, shoes } =
@@ -20,12 +21,14 @@ const EditProduct = () => {
   }, [])
 
   return (
-    <div>
-      <input
-        type="text"
-        onChange={(e) => handleSearch(e.target.value)}
-        placeholder="search product"
-      />
+    <div className="shoes-edit-wrapper">
+      <div className="shoes-edit-search">
+        <input
+          type="text"
+          onChange={(e) => handleSearch(e.target.value)}
+          placeholder="search product"
+        />
+      </div>
       <div className="shoes-container">
         {shoes.map((item) => {
           return (
