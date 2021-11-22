@@ -184,13 +184,13 @@
   color: #202020;
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1050px) {
   .cart-product-title {
     font-size: 1.5rem;
   }
 }
 
-@media all and (max-width: 955px) {
+@media all and (max-width: 980px) {
   .cart-product-title {
     font-size: 0.8rem;
   }
