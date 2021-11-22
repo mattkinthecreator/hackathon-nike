@@ -32,7 +32,11 @@ const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE)
   const [isAdmin, setIsAdmin] = useState(false)
 
-  const admins = ['maadanov03@gmail.com', 'bekievbeil@gmail.com']
+  const admins = [
+    'maadanov03@gmail.com',
+    'bekievbeil@gmail.com',
+    'ilim@gmail.com',
+  ]
 
   const clearInputs = () => {
     setEmail('')

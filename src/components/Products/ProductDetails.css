@@ -71,3 +71,10 @@
   max-width: 388px;
   max-height: 456px;
 }
+
+@media all and (max-width: 856px) {
+  .shoes-details-wrapper {
+    flex-flow: column;
+    align-items: center;
+  }
+}

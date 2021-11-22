@@ -70,17 +70,6 @@ const Favorites = () => {
                     </Link>
                   </div> */}
           </div>
-          <div className="checkout">
-            <div className="total">
-              <div>
-                <div className="subtotal">Sub-Total</div>
-                <div className="items">{favorites.count}</div>
-              </div>
-              <div className="total-amount">{favorites.price}$</div>
-            </div>
-
-            <button className="checkout-button">Купить</button>
-          </div>
         </div>
       ) : (
         <CircularProgress />
