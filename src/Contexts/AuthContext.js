@@ -155,6 +155,20 @@ const AuthContextProvider = ({ children }) => {
     getDataFavorites()
   }, [user])
 
+  // async function removeDataFavorites(item) {
+  //   console.log(item.id)
+  //   let { data } = await axios(`http://localhost:8000/users`)
+  //   let newData = [...data]
+  //   newData.forEach((elemnt) => {
+  //     if(elemnt.id === item.id )
+  //     // if (item.favorites) {
+  //     //   newData.favorites = item.favorites.filter(elem => elem.id !== item.id)
+  //       axios.delete(`http://localhost:8000/users/${item.id}`)
+  //     // }
+  //   })
+  //   getDataFavorites()
+  // }
+
   const values = {
     email,
     user,
