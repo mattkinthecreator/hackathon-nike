@@ -5,6 +5,7 @@ import { useAuth } from '../../Contexts/AuthContext'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { productsContext } from '../../Contexts/ProductsContext'
+import { red } from '@mui/material/colors'
 
 const Header = () => {
   const {
@@ -72,10 +73,10 @@ const Header = () => {
             </div>
             <div className="header-mid-title">
               <Link to="/favorites">
-                <FavoriteBorderIcon />
+                <FavoriteBorderIcon style={{ color: red[500] }} />
               </Link>
               <Link to="/cart">
-                <ShoppingCartIcon />
+                <ShoppingCartIcon color="primary" />
               </Link>
             </div>
             <div className="header-mid-search">

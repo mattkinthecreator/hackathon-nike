@@ -1,12 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 import { authContext } from '../../Contexts/AuthContext';
 import CircularProgress from '@mui/material/CircularProgress'
+import '../Cart/Cart.css'
 
 
 const Favorites = () => {
 
     const { favorites, 
-        getDataFavorites
+        getDataFavorites,
+        removeDataFavorites
     } = useContext(authContext)
     console.log(favorites)
 
@@ -15,43 +17,63 @@ const Favorites = () => {
     }, [])
 
     return (
-        <div>
-            <h1>ИЗБРАННОЕ</h1>
-            {favorites ? (
-        <div className="cart">
-          <table>
-            <thead>
-              <tr className="cart__tr">
-                <th>Image</th>
-                <th>Title</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-        {favorites.map((item) => (
-             <tr key={item.id} className="cart__td">
-             <td><img src={item.images[0].images} width="200px" height="200px"/></td>
-             <td>{item.title}</td>
-             <td>{item.price}</td>
-             <td>
-               {/* <input
-                 value={item.count}
-                 type="number"
-                 onChange={(e) =>
-                   changeProductCount(e.target.value, item.id)
-                 }
-               /> */}
-             </td>
-             {/* <td>{elem.subPrice}</td> */}
-           </tr>
-         ))}
-       </tbody>
-     </table>
-     </div>
-         ) : (
+        <div className="all">
+          {favorites ? (
+            <div className="cart">
+              <h1>Избранное</h1>
+              <div className="cart-container">
+                <div className="cart-header">
+                  <h3 className="heading">Shopping Cart</h3>
+                  <h5 className="action">Remove all</h5>
+                </div>
+                {favorites.map((elem) => (
+                 <div className="cart-items">
+                    <div className="image-box">
+                      <img src={elem.images[0].images} height="120px" width="120px"/>
+                    </div>
+                    <div className="about">
+                      <h2 className="cart-product-title">{elem.title}</h2>
+                    <h3 className="cart-product-subtitle">{elem.category}</h3>
+                    <hr/>
+                    </div>
+                    <div className="counter">
+                        </div>
+                    <div className="prices">
+                      <div className="prices">
+                          <div className="amount">{elem.price}$</div>ƒ
+                          <div className="save"><u>Favorites</u></div>
+                          <div className="remove"><u>Remove</u></div>
+                      </div>
+                      <hr/>
+                    </div>
+                  </div>
+                  ))}
+                  {/* <hr>  */}
+                {/* <div className='cart-options'>
+                  <h4>Total: {cart.totalPrice} </h4>
+                    <Link to="/order">
+                      <button>Купить</button>
+                    </Link>
+                  </div> */}
+            </div>
+            <div className="checkout">
+                      <div className="total">
+                      <div>
+                      <div className="subtotal">Sub-Total</div>
+                      <div className="items">{favorites.count}</div>
+                      </div>
+                      <div className="total-amount">{favorites.price}$</div>
+                      </div>
+                     
+                      <button className="checkout-button">Купить</button>
+                   
+                    </div>
+          </div>
+          
+          ) : (
             <CircularProgress />
           )}
-</div>
-    )}
+      </div>
+      )}
 
 export default Favorites;
