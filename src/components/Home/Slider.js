@@ -10,7 +10,7 @@ function valuetext(value) {
 }
 
 export default function RangeSlider() {
-  const [value, setValue] = React.useState([0, 400]);
+  const [value, setValue] = React.useState([0, 500]);
 
   const { getProducts } = React.useContext(productsContext);
 
@@ -37,7 +37,7 @@ const muiTheme = getMuiTheme({
         <Slider
           getAriaLabel={() => "price range"}
           value={value}
-          max={400}
+          max={500}
           onChange={handleChange}
           valueLabelDisplay="auto"
           getAriaValueText={valuetext}
