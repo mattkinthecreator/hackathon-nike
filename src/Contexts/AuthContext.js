@@ -136,6 +136,7 @@ const AuthContextProvider = ({ children }) => {
     let users = [...data]
     if (user) {
       let fav = users.filter((item) => item.email === user.email)
+      console.log(fav)
       dispatch({
         type: 'GET_FAV',
         payload: fav[0].favorites,
@@ -154,20 +155,6 @@ const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     getDataFavorites()
   }, [user])
-
-  // async function removeDataFavorites(item) {
-  //   console.log(item.id)
-  //   let { data } = await axios(`http://localhost:8000/users`)
-  //   let newData = [...data]
-  //   newData.forEach((elemnt) => {
-  //     if(elemnt.id === item.id )
-  //     // if (item.favorites) {
-  //     //   newData.favorites = item.favorites.filter(elem => elem.id !== item.id)
-  //       axios.delete(`http://localhost:8000/users/${item.id}`)
-  //     // }
-  //   })
-  //   getDataFavorites()
-  // }
 
   const values = {
     email,
