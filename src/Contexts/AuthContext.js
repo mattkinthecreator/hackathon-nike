@@ -10,12 +10,13 @@ export const useAuth = () => {
 
 const INIT_STATE = {
   favorites: [],
+  userId: '',
 }
 
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case 'GET_FAV':
-      return { ...state, favorites: action.payload }
+      return { ...state, favorites: action.payload, userId: action.id }
     default:
       return state
   }
@@ -138,9 +139,18 @@ const AuthContextProvider = ({ children }) => {
       dispatch({
         type: 'GET_FAV',
         payload: fav[0].favorites,
+        id: fav[0].id,
       })
     }
   }
+
+  async function removeFavorites(id, products) {
+    let { data } = await axios(`http://localhost:8000/users/${id}`)
+    data.favorites = products
+    await axios.patch(`http://localhost:8000/users/${id}`, data)
+    getDataFavorites()
+  }
+
   useEffect(() => {
     getDataFavorites()
   }, [user])
@@ -160,8 +170,10 @@ const AuthContextProvider = ({ children }) => {
     passwordError,
     addProductToFavorites,
     favorites: state.favorites,
+    userId: state.userId,
     getDataFavorites,
     isAdmin,
+    removeFavorites,
   }
 
   return <authContext.Provider value={values}>{children}</authContext.Provider>

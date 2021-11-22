@@ -1,6 +1,11 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import './AddProduct.css'
+import Box from '@mui/material/Box'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
+import FormControl from '@mui/material/FormControl'
+import Select from '@mui/material/Select'
 
 const AddProduct = () => {
   const [title, setTitle] = useState('')
@@ -9,6 +14,10 @@ const AddProduct = () => {
   const [imgColor, setImgColor] = useState('')
   const [img, setImg] = useState('')
   const [category, setCategory] = useState('')
+
+  const handleChange = (event) => {
+    setCategory(event.target.value)
+  }
 
   function handleAddProduct() {
     let shoes = {
@@ -68,129 +77,115 @@ const AddProduct = () => {
         multiple
         onChange={(e) => setImg(e.target.value)}
       />
-      <select size="3" multiple name="hero[]">
-        <option disabled>Категории</option>
-        <option
-          value="Спортивный стиль"
-          onClick={() => setCategory('Спортивный стиль')}
-        >
-          Спортивный стиль
-        </option>
-        <option value="Jordan" onClick={() => setCategory('Jordan')}>
-          Jordan
-        </option>
-        <option value="Бег" onClick={() => setCategory('Бег')}>
-          Бег
-        </option>
-        <option value="Баскетбол" onClick={() => setCategory('Баскетбол')}>
-          Баскетбол
-        </option>
-        <option value="Футбол" onClick={() => setCategory('Футбол')}>
-          Футбол
-        </option>
-        <option value="Бейсбол" onClick={() => setCategory('Бейсбол')}>
-          Бейсбол
-        </option>
-      </select>
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Category</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={category}
+            label="Category"
+            onChange={handleChange}
+          >
+            <MenuItem value="Спортивный стиль">Спортивный стиль</MenuItem>
+            <MenuItem value="Jordan">Jordan</MenuItem>
+            <MenuItem value="Бег">Бег</MenuItem>
+            <MenuItem value="Баскетбол">Баскетбол</MenuItem>
+            <MenuItem value="Футбол">Футбол</MenuItem>
+            <MenuItem value="Бейсбол">Бейсбол</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
       <div className="sizes">
         <div className="size">
-          <label>
-            36
-            <input
-              type="checkbox"
-              placeholder="size"
-              value={36}
-              onClick={(e) => addSize(e.target.value)}
-            />
-          </label>
+          <input
+            type="checkbox"
+            placeholder="size"
+            value={36}
+            onClick={(e) => addSize(e.target.value)}
+            id="36"
+          />
+          <label for="36">36</label>
         </div>
         <div className="size">
-          <label>
-            37
-            <input
-              type="checkbox"
-              placeholder="size"
-              value={37}
-              onClick={(e) => addSize(e.target.value)}
-            />
-          </label>
+          <input
+            type="checkbox"
+            placeholder="size"
+            value={37}
+            onClick={(e) => addSize(e.target.value)}
+            id="37"
+          />
+          <label for="37">37</label>
         </div>
         <div className="size">
-          <label>
-            38
-            <input
-              type="checkbox"
-              placeholder="size"
-              value={38}
-              onClick={(e) => addSize(e.target.value)}
-            />
-          </label>
+          <input
+            type="checkbox"
+            placeholder="size"
+            value={38}
+            onClick={(e) => addSize(e.target.value)}
+            id="38"
+          />
+          <label for="38">38</label>
         </div>
         <div className="size">
-          <label>
-            39
-            <input
-              type="checkbox"
-              placeholder="size"
-              value={39}
-              onClick={(e) => addSize(e.target.value)}
-            />
-          </label>
+          <input
+            type="checkbox"
+            placeholder="size"
+            value={39}
+            onClick={(e) => addSize(e.target.value)}
+            id="39"
+          />
+          <label for="39">39</label>
         </div>
         <div className="size">
-          <label>
-            40
-            <input
-              type="checkbox"
-              placeholder="size"
-              value={40}
-              onClick={(e) => addSize(e.target.value)}
-            />
-          </label>
+          <input
+            type="checkbox"
+            placeholder="size"
+            value={40}
+            onClick={(e) => addSize(e.target.value)}
+            id="40"
+          />
+          <label for="40">40</label>
         </div>
         <div className="size">
-          <label>
-            41
-            <input
-              type="checkbox"
-              placeholder="size"
-              value={41}
-              onClick={(e) => addSize(e.target.value)}
-            />
-          </label>
+          <input
+            type="checkbox"
+            placeholder="size"
+            value={41}
+            onClick={(e) => addSize(e.target.value)}
+            id="41"
+          />
+          <label for="41">41</label>
         </div>
         <div className="size">
-          <label>
-            42
-            <input
-              type="checkbox"
-              placeholder="size"
-              value={42}
-              onClick={(e) => addSize(e.target.value)}
-            />
-          </label>
+          <input
+            type="checkbox"
+            placeholder="size"
+            value={42}
+            onClick={(e) => addSize(e.target.value)}
+            id="42"
+          />
+          <label for="42">42</label>
         </div>
         <div className="size">
-          <label>
-            43
-            <input
-              type="checkbox"
-              placeholder="size"
-              value={43}
-              onClick={(e) => addSize(e.target.value)}
-            />
-          </label>
+          <input
+            type="checkbox"
+            placeholder="size"
+            value={43}
+            onClick={(e) => addSize(e.target.value)}
+            id="43"
+          />
+          <label for="43">43</label>
         </div>
         <div className="size">
-          <label>
-            44
-            <input
-              type="checkbox"
-              placeholder="size"
-              value={44}
-              onClick={(e) => addSize(e.target.value)}
-            />
-          </label>
+          <input
+            type="checkbox"
+            placeholder="size"
+            value={44}
+            onClick={(e) => addSize(e.target.value)}
+            id="44"
+          />
+          <label for="44">44</label>
         </div>
       </div>
       <button onClick={handleAddProduct} className="add-btn">
